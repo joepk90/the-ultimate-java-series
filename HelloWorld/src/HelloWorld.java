@@ -1,7 +1,10 @@
+import java.util.Date;
+
 public class HelloWorld {
     public static void main(String[] args) {
         // HelloWorld.variables();
         // HelloWorld.primativeTypes();
+        HelloWorld.referenceTypes();
     }
 
     public static void variables() {
@@ -17,5 +20,11 @@ public class HelloWorld {
         float price = 10.99F; // float - notice the ending suffex "F"
         char letter = 'A'; // char uses single quotes
         boolean isEligible = false;
+    }
+
+    public static void referenceTypes() {
+        Date now = new Date();
+        // now.getTime()
+        System.out.println(now); // shortcut: sout
     }
 }
