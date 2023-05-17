@@ -53,5 +53,15 @@ public class HelloWorld {
         System.out.println(message.toLowerCase());
         System.out.println(message.toUpperCase());
         System.out.println(message.trim()); // remove white space at start or end of string
+
+        // escaping strings
+        String escapedMessage = "Hello \"Joe\"";
+        String escapedBackSlash = "c:\\Windows\\"; // escaping backslashes
+        String escapedNewLine = "c:\nWindows\\"; // escaping backslashes
+        String escapedTab = "c:\tWindows\\"; // escaping backslashes
+        System.out.println(escapedMessage);
+        System.out.println(escapedBackSlash);
+        System.out.println(escapedNewLine);
+        System.out.println(escapedTab);
     }
 }
