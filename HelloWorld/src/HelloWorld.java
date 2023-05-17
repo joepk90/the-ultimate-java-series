@@ -1,7 +1,7 @@
 public class HelloWorld {
     public static void main(String[] args) {
         // HelloWorld.variables();
-        HelloWorld.types();
+        // HelloWorld.primativeTypes();
     }
 
     public static void variables() {
@@ -11,6 +11,11 @@ public class HelloWorld {
         System.out.println(age);
     }
 
-    public static void types() {
+    public static void primativeTypes() {
+        int viewsCount = 123_456_789; // underscores can be used to make ints more readeable
+        long viewsCountLong = 3_123_456_789L; // long - notice the ending suffex "L"
+        float price = 10.99F; // float - notice the ending suffex "F"
+        char letter = 'A'; // char uses single quotes
+        boolean isEligible = false;
     }
 }
