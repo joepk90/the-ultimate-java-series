@@ -6,7 +6,8 @@ public class HelloWorld {
         // HelloWorld.variables();
         // HelloWorld.primativeTypes();
         // HelloWorld.referenceTypes();
-        HelloWorld.referenceVsPrimativeTypes();
+        // HelloWorld.referenceVsPrimativeTypes();
+        HelloWorld.strings();
     }
 
     public static void variables() {
@@ -40,5 +41,22 @@ public class HelloWorld {
         Point point2 = point1;
         point1.x = 2; // this will update the value of x of the Point reference object also assigned to the point1 variable
         System.out.println(point2); // point 2 x will also equal 2
+    }
+
+    public static void strings() {
+        // String message = new String("Hello World"); // redundant use of string
+        // operator
+        // String message = "Hello World"; // short hand to declare string variables
+        String message = "Hello World" + "!!"; // string concatination
+        System.out.println(message.endsWith("!!")); // true 
+        System.out.println(message.startsWith("!!")); // false
+        System.out.println(message.length()); // 13
+        System.out.println(message.indexOf("e")); // 1
+        System.out.println(message.indexOf("sky")); // -1
+        System.out.println(message.replace("!", "*")); // Hello World**
+        System.out.println(message); // Hello World (previous method did not mutate the original string, because strings are immutable
+        System.out.println(message.toLowerCase()); // hello world!!
+        System.out.println(message.toUpperCase()); // HELLO WORLD!!
+        System.out.println(message.trim()); // remove white space at start or end of string
     }
 }
