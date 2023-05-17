@@ -1,6 +1,7 @@
 public class HelloWorld {
     public static void main(String[] args) {
-        HelloWorld.variables();
+        // HelloWorld.variables();
+        HelloWorld.types();
     }
 
     public static void variables() {
@@ -8,5 +9,8 @@ public class HelloWorld {
         int age = 30;
         age = 35;
         System.out.println(age);
+    }
+
+    public static void types() {
     }
 }
