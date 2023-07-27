@@ -1,5 +1,6 @@
 import java.util.Date;
 import java.awt.*;
+import java.util.Arrays;
 
 public class HelloWorld {
     public static void main(String[] args) {
@@ -7,7 +8,8 @@ public class HelloWorld {
         // HelloWorld.primativeTypes();
         // HelloWorld.referenceTypes();
         // HelloWorld.referenceVsPrimativeTypes();
-        HelloWorld.strings();
+        // HelloWorld.strings();
+        HelloWorld.arrays();
     }
 
     public static void variables() {
@@ -69,4 +71,23 @@ public class HelloWorld {
         System.out.println(escapedNewLine); // c: {NEW LINE} Windows\
         System.out.println(escapedTab); // c:   Windows\
     }
+
+    public static void arrays() {
+        // old array declaration syntax
+        int[] numbers = new int[5]; // array length is set to 5
+        numbers[0] = 1;
+        numbers[1] = 2;
+        // numbers[10] = 3; // throws an Exception (error)
+
+        System.out.println(numbers); // returns memory address: I@28a3868
+        System.out.println(Arrays.toString(numbers)); // [1, 2, 0, 0, 0]
+
+        // new array declaration syntax
+        int[] numbers2 = { 2, 3, 5, 1, 4 }; // java arrays have a fixed length - 5 in this circumstance because it is declared with 5
+        System.out.println(numbers.length); // 5
+
+        Arrays.sort(numbers2);
+        System.out.println(Arrays.toString(numbers2)); // [1, 2, 3, 4, 5]
+    }
+
 }
