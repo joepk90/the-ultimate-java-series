@@ -9,7 +9,8 @@ public class HelloWorld {
         // HelloWorld.referenceTypes();
         // HelloWorld.referenceVsPrimativeTypes();
         // HelloWorld.strings();
-        HelloWorld.arrays();
+        // HelloWorld.arrays();
+        HelloWorld.multidemnsionalArrays();
     }
 
     public static void variables() {
@@ -90,4 +91,14 @@ public class HelloWorld {
         System.out.println(Arrays.toString(numbers2)); // [1, 2, 3, 4, 5]
     }
 
+    public static void multidemnsionalArrays() {        
+        //  int[][][] numbers = new int[2][3][5];  // 3 dimensional array
+        int[][] numbers = new int[2][3]; // 2 dimensional array
+        numbers[0][0] = 1;
+        System.out.println(Arrays.toString(numbers)); // [I@2b2fa4f7, [I@1dbd16a6] - prints the reference, because array values points to another array
+        System.out.println(Arrays.deepToString(numbers)); // [[1, 0, 0], [0, 0, 0]] - prints the array values
+
+        int[][] numbersBracketSyntax = { {1, 2, 3}, {4, 5, 6} }; // 2 dimensional array
+        System.out.println(Arrays.deepToString(numbersBracketSyntax)); // [[1, 2, 3], [4, 5, 6]]
+    }
 }
