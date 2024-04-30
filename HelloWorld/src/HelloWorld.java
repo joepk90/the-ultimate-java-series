@@ -10,7 +10,8 @@ public class HelloWorld {
         // HelloWorld.referenceVsPrimativeTypes();
         // HelloWorld.strings();
         // HelloWorld.arrays();
-        HelloWorld.multidemnsionalArrays();
+        // HelloWorld.multidemnsionalArrays();
+        HelloWorld.constants();
     }
 
     public static void variables() {
@@ -100,5 +101,11 @@ public class HelloWorld {
 
         int[][] numbersBracketSyntax = { {1, 2, 3}, {4, 5, 6} }; // 2 dimensional array
         System.out.println(Arrays.deepToString(numbersBracketSyntax)); // [[1, 2, 3], [4, 5, 6]]
+    }
+
+    public static void constants() {  
+        // by convention, constants are declared using capital letters
+        final float PI = 3.14F;
+        // PI = 1; // final prevents pi from being reasigned
     }
 }
