@@ -130,5 +130,13 @@ public class HelloWorld {
         System.out.println(x); // 2 (x has been incremented)
         System.out.println("y: "); // 1 (y has been copied before x was incremented)
         System.out.println(y); // 1 (y has been copied before x was incremented)
+
+        // using prefix to increment
+        int x2 = 1;
+        int y2 = ++x2;
+        System.out.println("x2: "); // 2
+        System.out.println(x2); // 2
+        System.out.println("y2: "); // 2
+        System.out.println(y2); // 2
     }
 }
