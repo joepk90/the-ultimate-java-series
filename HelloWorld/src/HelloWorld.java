@@ -138,5 +138,16 @@ public class HelloWorld {
         System.out.println(x2); // 2
         System.out.println("y2: "); // 2
         System.out.println(y2); // 2
+
+        // augmented/compound assignment operators
+        int x3 = 1;
+        // x3 = x3 + 2; // 3
+        x3 += 2; // 3 (producers the same result as the line above)
+
+        // other augmented/compound assignment operator examples
+        // x3 -= 2;
+        // x3 *= 2;
+        // x3 /= 2;
+        System.out.println(x3);
     }
 }
