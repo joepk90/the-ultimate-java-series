@@ -11,7 +11,8 @@ public class HelloWorld {
         // HelloWorld.strings();
         // HelloWorld.arrays();
         // HelloWorld.multidemnsionalArrays();
-        HelloWorld.constants();
+        // HelloWorld.constants();
+        HelloWorld.arithmaticExpressions();
     }
 
     public static void variables() {
@@ -107,5 +108,27 @@ public class HelloWorld {
         // by convention, constants are declared using capital letters
         final float PI = 3.14F;
         // PI = 1; // final prevents pi from being reasigned
+    }
+
+     public static void arithmaticExpressions() {
+        // arithmatic expressions
+        // int result = 10 + 3; // 13
+        // int result = 10 - 3; // 7
+        // int result = 10 * 3; // 30
+        int result = 10 / 3; // 3 - devision of a whole number will equal a whole number
+        System.out.println(result);
+
+        double result2 = (double)10 / (double)3; // 3.333333333....
+        System.out.println(result2);
+
+        // increment expresions
+        int x = 1;
+        // x++; // ++x also works
+        int y = x++;
+        
+        System.out.println("x: "); // 2 (x has been incremented)
+        System.out.println(x); // 2 (x has been incremented)
+        System.out.println("y: "); // 1 (y has been copied before x was incremented)
+        System.out.println(y); // 1 (y has been copied before x was incremented)
     }
 }
