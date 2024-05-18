@@ -13,7 +13,8 @@ public class HelloWorld {
         // HelloWorld.multidemnsionalArrays();
         // HelloWorld.constants();
         // HelloWorld.arithmaticExpressions();
-        HelloWorld.orderOfOperations();
+        // HelloWorld.orderOfOperations();
+        HelloWorld.casting();
     }
 
     public static void variables() {
@@ -170,6 +171,44 @@ public class HelloWorld {
 
         int y = (10 + 3) * 2;
         System.out.println(y); // 26
+    }
+
+    public static void casting() {
+
+        /**
+         * Imlicit Casting
+         * implicit casting occurs when there is no chance of data loss
+         * byte > short > int > long > float > double
+         */
+
+        // short > int
+        short x = 1; // 2 bytes
+        int y = x + 2; // 4 bytes
+        System.out.println(y); // 3
+
+        // int > double
+        double x2 = 1.1;
+        double y2 = x2 + 2; // double and int (int will be casted to a double: 2.0)
+        System.out.println(y2); // 3.1
+
+        /**
+         * Explicit Casting
+         */
+
+        // double > int
+        double x3 = 1.1;
+        int y3 = (int) x3 + 2; // double and int (double will be casted to an int: 1)
+        System.out.println(y3); // 3
+
+        // string > int
+        String x4 = "1";
+        int y4 = Integer.parseInt(x4) + 2;
+        System.out.println(y4); // 3
+
+        // string > double
+        String x5 = "1.1";
+        double y5 = Double.parseDouble(x5) + 2;
+        System.out.println(y5); // 3.1
     }
 
 }
