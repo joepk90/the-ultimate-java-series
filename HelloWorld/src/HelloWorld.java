@@ -44,7 +44,8 @@ public class HelloWorld {
 
         Point point1 = new Point(1, 1);
         Point point2 = point1;
-        point1.x = 2; // this will update the value of x of the Point reference object also assigned to the point1 variable
+        point1.x = 2; // this will update the value of x of the Point reference object also assigned
+                      // to the point1 variable
         System.out.println(point2); // point 2 x will also equal 2
     }
 
@@ -53,13 +54,14 @@ public class HelloWorld {
         // operator
         // String message = "Hello World"; // short hand to declare string variables
         String message = "Hello World" + "!!"; // string concatination
-        System.out.println(message.endsWith("!!")); // true 
+        System.out.println(message.endsWith("!!")); // true
         System.out.println(message.startsWith("!!")); // false
         System.out.println(message.length()); // 13
         System.out.println(message.indexOf("e")); // 1
         System.out.println(message.indexOf("sky")); // -1
         System.out.println(message.replace("!", "*")); // Hello World**
-        System.out.println(message); // Hello World (previous method did not mutate the original string, because strings are immutable
+        System.out.println(message); // Hello World (previous method did not mutate the original string, because
+                                     // strings are immutable
         System.out.println(message.toLowerCase()); // hello world!!
         System.out.println(message.toUpperCase()); // HELLO WORLD!!
         System.out.println(message.trim()); // remove white space at start or end of string
@@ -72,7 +74,7 @@ public class HelloWorld {
         System.out.println(escapedMessage); // Hello "Joe"
         System.out.println(escapedBackSlash); // c:\Windows\
         System.out.println(escapedNewLine); // c: {NEW LINE} Windows\
-        System.out.println(escapedTab); // c:   Windows\
+        System.out.println(escapedTab); // c: Windows\
     }
 
     public static void arrays() {
@@ -86,31 +88,33 @@ public class HelloWorld {
         System.out.println(Arrays.toString(numbers)); // [1, 2, 0, 0, 0]
 
         // new array declaration syntax
-        int[] numbers2 = { 2, 3, 5, 1, 4 }; // java arrays have a fixed length - 5 in this circumstance because it is declared with 5
+        int[] numbers2 = { 2, 3, 5, 1, 4 }; // java arrays have a fixed length - 5 in this circumstance because it is
+                                            // declared with 5
         System.out.println(numbers.length); // 5
 
         Arrays.sort(numbers2);
         System.out.println(Arrays.toString(numbers2)); // [1, 2, 3, 4, 5]
     }
 
-    public static void multidemnsionalArrays() {        
-        //  int[][][] numbers = new int[2][3][5];  // 3 dimensional array
+    public static void multidemnsionalArrays() {
+        // int[][][] numbers = new int[2][3][5]; // 3 dimensional array
         int[][] numbers = new int[2][3]; // 2 dimensional array
         numbers[0][0] = 1;
-        System.out.println(Arrays.toString(numbers)); // [I@2b2fa4f7, [I@1dbd16a6] - prints the reference, because array values points to another array
+        System.out.println(Arrays.toString(numbers)); // [I@2b2fa4f7, [I@1dbd16a6] - prints the reference, because array
+                                                      // values points to another array
         System.out.println(Arrays.deepToString(numbers)); // [[1, 0, 0], [0, 0, 0]] - prints the array values
 
-        int[][] numbersBracketSyntax = { {1, 2, 3}, {4, 5, 6} }; // 2 dimensional array
+        int[][] numbersBracketSyntax = { { 1, 2, 3 }, { 4, 5, 6 } }; // 2 dimensional array
         System.out.println(Arrays.deepToString(numbersBracketSyntax)); // [[1, 2, 3], [4, 5, 6]]
     }
 
-    public static void constants() {  
+    public static void constants() {
         // by convention, constants are declared using capital letters
         final float PI = 3.14F;
         // PI = 1; // final prevents pi from being reasigned
     }
 
-     public static void arithmaticExpressions() {
+    public static void arithmaticExpressions() {
         // arithmatic expressions
         // int result = 10 + 3; // 13
         // int result = 10 - 3; // 7
@@ -118,14 +122,14 @@ public class HelloWorld {
         int result = 10 / 3; // 3 - devision of a whole number will equal a whole number
         System.out.println(result);
 
-        double result2 = (double)10 / (double)3; // 3.333333333....
+        double result2 = (double) 10 / (double) 3; // 3.333333333....
         System.out.println(result2);
 
         // increment expresions
         int x = 1;
         // x++; // ++x also works
         int y = x++;
-        
+
         System.out.println("x: "); // 2 (x has been incremented)
         System.out.println(x); // 2 (x has been incremented)
         System.out.println("y: "); // 1 (y has been copied before x was incremented)
