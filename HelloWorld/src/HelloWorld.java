@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.util.Scanner;
 import java.awt.*;
 import java.text.NumberFormat;
 import java.util.Arrays;
@@ -17,7 +18,8 @@ public class HelloWorld {
         // HelloWorld.orderOfOperations();
         // HelloWorld.casting();
         // HelloWorld.mathClass();
-        HelloWorld.formattingNumbers();
+        // HelloWorld.formattingNumbers();
+        HelloWorld.readingInput();
     }
 
     public static void variables() {
@@ -271,6 +273,23 @@ public class HelloWorld {
         String percentResult = NumberFormat.getPercentInstance().format(0.1);
         System.out.println(percentResult); // 10%
 
+    }
+
+    public static void readingInput() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Age: ");
+        byte age = scanner.nextByte();
+        System.out.println("You are " + age);
+
+        System.out.print("Name: ");
+        // String name = scanner.next();
+        // next reads one token at a time (so only the first word is captured)
+        // for example: John Smith will output John
+        // To solve this use nextLine
+
+        String name = scanner.nextLine().trim(); // trim unnecccesary white space before and after any tokens
+        System.out.println("You are " + name);
     }
 
 }
