@@ -12,7 +12,8 @@ public class HelloWorld {
         // HelloWorld.arrays();
         // HelloWorld.multidemnsionalArrays();
         // HelloWorld.constants();
-        HelloWorld.arithmaticExpressions();
+        // HelloWorld.arithmaticExpressions();
+        HelloWorld.orderOfOperations();
     }
 
     public static void variables() {
@@ -154,4 +155,21 @@ public class HelloWorld {
         // x3 /= 2;
         System.out.println(x3);
     }
+
+    public static void orderOfOperations() {
+
+        /**
+         * Priority Order:
+         * - ()
+         * - * /
+         * - +-
+         */
+
+        int x = 10 + 3 * 2;
+        System.out.println(x); // 16
+
+        int y = (10 + 3) * 2;
+        System.out.println(y); // 26
+    }
+
 }
