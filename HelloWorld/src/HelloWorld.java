@@ -14,7 +14,8 @@ public class HelloWorld {
         // HelloWorld.constants();
         // HelloWorld.arithmaticExpressions();
         // HelloWorld.orderOfOperations();
-        HelloWorld.casting();
+        // HelloWorld.casting();
+        HelloWorld.mathClass();
     }
 
     public static void variables() {
@@ -209,6 +210,39 @@ public class HelloWorld {
         String x5 = "1.1";
         double y5 = Double.parseDouble(x5) + 2;
         System.out.println(y5); // 3.1
+    }
+
+    public static void mathClass() {
+
+        // round: rounding to a whole number
+        int roundResult = Math.round(1.1F);
+        System.out.println(roundResult); //
+
+        // ceil: converts a decimal number to the immediate largest integer
+        int ceilResult = (int) Math.ceil(1.1F);
+        System.out.println(ceilResult); // 2
+
+        // floor: returns a value of type double, the largest integer that is less than
+        // or equal to the specified value.
+        int floorResult = (int) Math.floor(1.1F);
+        System.out.println(floorResult); // 1
+
+        // max: returns the larger number
+        int maxResult = (int) Math.max(1, 2);
+        System.out.println(maxResult); // 2
+
+        // min: returns the smaller number
+        int minResult = (int) Math.min(1, 2);
+        System.out.println(minResult); // 1
+
+        // random: returns floating point number between 0 - 1
+        double randomResult = Math.random();
+        System.out.println(randomResult);
+
+        // random (custom): return int between 0 - 100
+        // int randomResult100 = (int) Math.round(Math.random() * 100);
+        int randomResult100 = (int) (Math.random() * 100);
+        System.out.println(randomResult100);
     }
 
 }
