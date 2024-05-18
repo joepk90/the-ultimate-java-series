@@ -1,5 +1,6 @@
 import java.util.Date;
 import java.awt.*;
+import java.text.NumberFormat;
 import java.util.Arrays;
 
 public class HelloWorld {
@@ -15,7 +16,8 @@ public class HelloWorld {
         // HelloWorld.arithmaticExpressions();
         // HelloWorld.orderOfOperations();
         // HelloWorld.casting();
-        HelloWorld.mathClass();
+        // HelloWorld.mathClass();
+        HelloWorld.formattingNumbers();
     }
 
     public static void variables() {
@@ -243,6 +245,32 @@ public class HelloWorld {
         // int randomResult100 = (int) Math.round(Math.random() * 100);
         int randomResult100 = (int) (Math.random() * 100);
         System.out.println(randomResult100);
+    }
+
+    public static void formattingNumbers() {
+
+        // instantiating a new NumberFormat is not possible because it is abstract.
+        // NumberFormat currency = new NumberFormat();
+
+        // getCurrencyInstance is a factory method returning and returns an instance of
+        // NumberFormat
+        // NumberFormat currency = NumberFormat.getCurrencyInstance();
+        // String currencyResult = currency.format(1234567.891);
+        // System.out.println(currencyResult); // ¤1,234,567.89
+
+        // getPercentInstance is a factory method and returns an instance of
+        // NumberFormat
+        // NumberFormat percent = NumberFormat.getPercentInstance(); //
+        // String percentResult = percent.format(0.1);
+        // System.out.println(percentResult); // 10%
+
+        // simplified version using method chaining
+        String currencyResult = NumberFormat.getCurrencyInstance().format(1234567.891);
+        System.out.println(currencyResult);// ¤1,234,567.89
+
+        String percentResult = NumberFormat.getPercentInstance().format(0.1);
+        System.out.println(percentResult); // 10%
+
     }
 
 }
