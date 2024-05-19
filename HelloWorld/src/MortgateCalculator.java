@@ -1,3 +1,4 @@
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class MortgateCalculator {
@@ -27,19 +28,25 @@ public class MortgateCalculator {
     }
 
     public static void calculateMortgate() {
+        final byte MONTHS_IN_YEAR = 12;
+        final byte PERCENT = 100;
+
         Scanner scanner = new Scanner(System.in);
         long principle = MortgateCalculator.getPrinciple(scanner);
         float annualInterestRate = MortgateCalculator.getAnnualInterestRate(scanner);
         int period = MortgateCalculator.getPeriod(scanner);
 
         // calculate mortage
-        float monthlyInterestRate = (annualInterestRate / 100) / 12;
-        int totalMonths = period * 12;
-        float repaymentAmount = principle * (monthlyInterestRate * totalMonths);
+        float monthlyInterestRate = (annualInterestRate / PERCENT)
+                / MONTHS_IN_YEAR;
+        int numberOfPayments = period * MONTHS_IN_YEAR;
 
-        // EQUATION NOT QUITE RIGHT...
+        double mortage = principle * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments))
+                / (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
 
-        System.out.println("Repayment amount: " + repaymentAmount);
+        String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortage);
+
+        System.out.println("Mortgage: " + mortgageFormatted);
 
         scanner.close();
     }
