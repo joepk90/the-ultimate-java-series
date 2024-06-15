@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Loops {
     static public void main(String[] args) {
         // Loops.forLoops();
@@ -19,5 +21,17 @@ public class Loops {
             System.out.println("Hello World " + i);
             i--;
         }
+
+        Scanner scanner = new Scanner(System.in);
+
+        String input = "";
+        while(!input.equals("quit")) {
+            System.out.print("Input: ");
+            input = scanner.next().toLowerCase();
+            System.out.println(input);
+        }
+
+        scanner.close();
+
     }
 }
