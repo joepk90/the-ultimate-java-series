@@ -30,6 +30,10 @@ public class Loops {
             System.out.print("Input: ");
             input = scanner.next().toLowerCase();
 
+            // move control  to the beginning of the loop (prevent printing to the console but continue looping)
+            if (input.equals("pass"))
+                continue;
+
             if (input.equals("quit"))
                 break;
 
