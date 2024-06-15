@@ -4,22 +4,22 @@ import java.awt.*;
 import java.text.NumberFormat;
 import java.util.Arrays;
 
-public class HelloWorld {
+public class Types {
     public static void main(String[] args) {
-        // HelloWorld.variables();
-        // HelloWorld.primativeTypes();
-        // HelloWorld.referenceTypes();
-        // HelloWorld.referenceVsPrimativeTypes();
-        // HelloWorld.strings();
-        // HelloWorld.arrays();
-        // HelloWorld.multidemnsionalArrays();
-        // HelloWorld.constants();
-        // HelloWorld.arithmaticExpressions();
-        // HelloWorld.orderOfOperations();
-        // HelloWorld.casting();
-        // HelloWorld.mathClass();
-        // HelloWorld.formattingNumbers();
-        HelloWorld.readingInput();
+        // Types.variables();
+        // Types.primativeTypes();
+        // Types.referenceTypes();
+        // Types.referenceVsPrimativeTypes();
+        // Types.strings();
+        // Types.arrays();
+        // Types.multidemnsionalArrays();
+        // Types.constants();
+        // Types.arithmaticExpressions();
+        // Types.orderOfOperations();
+        // Types.casting();
+        // Types.mathClass();
+        // Types.formattingNumbers();
+        Types.readingInput();
     }
 
     public static void variables() {
