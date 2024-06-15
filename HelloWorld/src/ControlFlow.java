@@ -1,7 +1,8 @@
 public class ControlFlow {
     
     public static void main(String[] args) {
-        ControlFlow.comparisonOperators();
+        // ControlFlow.comparisonOperators();
+        ControlFlow.logicalOperators();
     }
 
     public static void comparisonOperators() {
@@ -13,5 +14,17 @@ public class ControlFlow {
         System.out.println(x >= y); // true
         System.out.println(x < y); // false
         System.out.println(x <= y); // true
+    }
+
+    public static void logicalOperators() {
+        int temporature = 22;
+        boolean isWarm = temporature > 20 && temporature < 30;
+        System.out.println(isWarm); // true
+
+        boolean hasHighIncome = true;
+        boolean hasGoodCredit = true;
+        boolean hasCriminalRecord = false;
+        boolean isEligible = (hasHighIncome || hasGoodCredit) && !hasCriminalRecord;
+        System.out.println(isEligible); // true
     }
 }
