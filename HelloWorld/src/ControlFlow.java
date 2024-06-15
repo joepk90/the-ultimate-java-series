@@ -4,7 +4,8 @@ public class ControlFlow {
         // ControlFlow.comparisonOperators();
         // ControlFlow.logicalOperators();
         // ControlFlow.ifStatements();
-        ControlFlow.simplifiedIfStatements();
+        // ControlFlow.simplifiedIfStatements();
+        ControlFlow.ternaryOperator();
     }
 
     public static void comparisonOperators() {
@@ -48,5 +49,17 @@ public class ControlFlow {
         int income = 120_000;
         boolean hasHighIncome = (income > 100_000);
         System.out.println(hasHighIncome);
+    }
+
+    public static void ternaryOperator() {
+        int income = 120_000;
+
+        String className;
+        if (income > 100_000)
+            className = "First";
+        else
+            className = "Economy";
+
+        System.out.println(className);
     }
 }
