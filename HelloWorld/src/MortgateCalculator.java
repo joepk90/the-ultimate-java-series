@@ -6,14 +6,17 @@ public class MortgateCalculator {
         final byte MONTHS_IN_YEAR = 12;
         final byte PERCENT = 100;
 
+        int principle = 0;
+        float monthlyInterest = 0;
+        
+        int numberOfPayments = 0;
+
         Scanner scanner = new Scanner(System.in);
 
          /**
          * Principle (Loan)
          */
-        int principle = 0;
         while(true) {
-            
             System.out.print("Principle ($1k - $1M): ");
             principle = scanner.nextInt();
 
@@ -34,37 +37,31 @@ public class MortgateCalculator {
             annualInterest = scanner.nextFloat();
 
             if (annualInterest > 0.0f && annualInterest < 30.0f) {
+                monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
                 break;
             }
 
             System.out.println("Enter a value greater than 0 and less than or equal to 30");
-                
         }
-
-        float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
 
         /**
          * Period
          */
-        byte period = 0;
         while(true) {
-            
             System.out.print("Period (Years): ");
-            scanner.nextByte();
+            byte years = scanner.nextByte();
 
-            if (period > 0 && period <= 30) {
+            if (years > 1 && years <= 30) {
+                numberOfPayments = years * MONTHS_IN_YEAR;
                 break;
             }
 
-            System.out.println("Enter a value between 1 and 30");
-                
+            System.out.println("Enter a value between 1 and 30"); 
         }
 
         /**
          * Calculations
          */
-        int numberOfPayments = period * MONTHS_IN_YEAR;
-
         double mortage = principle * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments))
                 / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
 
