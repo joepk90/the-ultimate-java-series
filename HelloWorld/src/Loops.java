@@ -3,8 +3,9 @@ import java.util.Scanner;
 public class Loops {
     static public void main(String[] args) {
         // Loops.forLoops();
-        Loops.whileLoops();
+        // Loops.whileLoops();
         // Loops.doWhileLoops();
+        Loops.forEachLoops();
     }
 
     public static void forLoops() {
@@ -69,5 +70,16 @@ public class Loops {
         } while(!input.equals("quit"));
 
         scanner.close();
+    }
+
+    public static void forEachLoops() {
+        String[] fruits = {"Apple", "Mango", "Orange"};
+
+        for (int i = 0; i < fruits.length; i++) {
+            System.out.println(fruits[i]);
+        }
+
+        for (String fruit: fruits)
+            System.out.println(fruit);
     }
 }
