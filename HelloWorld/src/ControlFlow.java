@@ -53,13 +53,7 @@ public class ControlFlow {
 
     public static void ternaryOperator() {
         int income = 120_000;
-
-        String className;
-        if (income > 100_000)
-            className = "First";
-        else
-            className = "Economy";
-
+        String className = income > 100_000 ? "Economy" : "First";
         System.out.println(className);
     }
 }
