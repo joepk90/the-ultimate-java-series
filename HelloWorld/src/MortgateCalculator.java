@@ -3,63 +3,13 @@ import java.util.Scanner;
 
 public class MortgateCalculator {
     public static void main(String[] args) {
-        
-        
+        int principle = (int) readNumber("Principle ($1k - $1M): ", 1000, 1_000_000);
+        float annualInterest = (float) readNumber("Annual Interest Rate: ", 1, 30);
+        byte years = (byte) readNumber("Period (Years): ", 1, 30);
 
-        int principle = 0;
-        float annualInterest = 0;
-        byte years = 0;
-
-        Scanner scanner = new Scanner(System.in);
-
-         /**
-         * Principle (Loan)
-         */
-        while(true) {
-            System.out.print("Principle ($1k - $1M): ");
-            principle = scanner.nextInt();
-
-            if (principle >= 1000 && principle <= 1_000_000) {
-                break;
-            }
-
-            System.out.println("Enter a number between 1,000 and 1,000,000.");
-                
-        }
-        
-        /**
-         * Annual Interest Rate
-         */
-        while(true) {
-            System.out.print("Annual Interest Rate: ");
-            annualInterest = scanner.nextFloat();
-
-            if (annualInterest > 0.0f && annualInterest < 30.0f)
-                break;
-        
-
-            System.out.println("Enter a value greater than 0 and less than or equal to 30");
-        }
-
-        /**
-         * Period
-         */
-        while(true) {
-            System.out.print("Period (Years): ");
-            years = scanner.nextByte();
-
-            if (years > 1 && years <= 30)
-                break;
-
-            System.out.println("Enter a value between 1 and 30"); 
-        }
-
-       
         double mortage = calculateMortgate(principle, annualInterest, years);
         String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortage);
         System.out.println("Mortgage: " + mortgageFormatted);
-
-        scanner.close();
     }
 
     public static double calculateMortgate(
@@ -77,6 +27,24 @@ public class MortgateCalculator {
             / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
 
             return mortage;
+    }
+
+    public static double readNumber(String prompt, double min, double max) {
+        Scanner scanner = new Scanner(System.in);
+
+        double value;
+        while(true) {
+            System.out.print(prompt);
+            value = scanner.nextFloat();
+
+            if (value >= min && value <= max)
+                break;
+
+            System.out.println("Enter a value between " + min + " and " + max + "30"); 
+        }
+
+        // scanner.close(); // closing scanner breaks script?
+        return value;
     }
 
 }
