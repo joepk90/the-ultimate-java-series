@@ -26,7 +26,11 @@ public class Loops {
         Scanner scanner = new Scanner(System.in);
 
         String input = "";
-        while(!input.equals("quit")) {
+        
+        while(true) {
+        // break statement required to avoid infinite loop
+        // alternatively use the input.equals("quit") comparison to stop the loop
+
             System.out.print("Input: ");
             input = scanner.next().toLowerCase();
 
