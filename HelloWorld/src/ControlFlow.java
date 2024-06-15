@@ -5,7 +5,8 @@ public class ControlFlow {
         // ControlFlow.logicalOperators();
         // ControlFlow.ifStatements();
         // ControlFlow.simplifiedIfStatements();
-        ControlFlow.ternaryOperator();
+        // ControlFlow.ternaryOperator();
+        ControlFlow.switchStatements();
     }
 
     public static void comparisonOperators() {
@@ -55,5 +56,16 @@ public class ControlFlow {
         int income = 120_000;
         String className = income > 100_000 ? "Economy" : "First";
         System.out.println(className);
+    }
+
+    public static void switchStatements() {
+        String role = "admin";
+        if (role == "admin")
+            System.out.println("You're an admin");
+        else if (role == "moderator")
+            System.out.println("You're a moderator");
+        else
+            System.out.println("You're a guest");
+            
     }
 }
