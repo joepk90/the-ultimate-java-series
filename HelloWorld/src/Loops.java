@@ -3,7 +3,8 @@ import java.util.Scanner;
 public class Loops {
     static public void main(String[] args) {
         // Loops.forLoops();
-        Loops.whileLoops();
+        // Loops.whileLoops();
+        Loops.doWhileLoops();
     }
 
     public static void forLoops() {
@@ -33,5 +34,24 @@ public class Loops {
 
         scanner.close();
 
+    }
+
+    public static void doWhileLoops() {
+
+        Scanner scanner = new Scanner(System.in);
+
+        String input = "";
+
+        /**
+         * Do While Loops
+         * always get execeted at least once, even if the condition is false
+         */
+        do {
+            System.out.print("Input: ");
+            input = scanner.next().toLowerCase();
+            System.out.println(input);
+        } while(!input.equals("quit"));
+
+        scanner.close();
     }
 }
