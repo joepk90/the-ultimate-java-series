@@ -3,8 +3,8 @@ import java.util.Scanner;
 public class Loops {
     static public void main(String[] args) {
         // Loops.forLoops();
-        // Loops.whileLoops();
-        Loops.doWhileLoops();
+        Loops.whileLoops();
+        // Loops.doWhileLoops();
     }
 
     public static void forLoops() {
@@ -29,7 +29,15 @@ public class Loops {
         while(!input.equals("quit")) {
             System.out.print("Input: ");
             input = scanner.next().toLowerCase();
+
+            if (input.equals("quit"))
+                break;
+
             System.out.println(input);
+
+            // alternative approach to prevent "quit" being printed to the console
+            // if (!input.equals("quit"))
+            //     System.out.println(input);
         }
 
         scanner.close();
