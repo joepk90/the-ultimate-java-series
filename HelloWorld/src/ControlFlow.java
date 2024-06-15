@@ -3,7 +3,8 @@ public class ControlFlow {
     public static void main(String[] args) {
         // ControlFlow.comparisonOperators();
         // ControlFlow.logicalOperators();
-        ControlFlow.ifStatements();
+        // ControlFlow.ifStatements();
+        ControlFlow.simplifiedIfStatements();
     }
 
     public static void comparisonOperators() {
@@ -41,5 +42,19 @@ public class ControlFlow {
             System.out.println("Beautiful day");
         else
             System.out.println("Cold day");
+    }
+
+    public static void simplifiedIfStatements() {
+        int income = 120_000;
+
+        boolean hasHighIncome = true;
+        if (income > 100_000)
+            hasHighIncome = true;
+        else {
+            hasHighIncome = false;
+        }
+
+        System.out.println(hasHighIncome);
+            
     }
 }
