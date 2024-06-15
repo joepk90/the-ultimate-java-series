@@ -10,6 +10,37 @@ public class MortgateCalculator {
         double mortage = calculateMortgate(principle, annualInterest, years);
         String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortage);
         System.out.println("Mortgage: " + mortgageFormatted);
+
+        calculateRepayments(principle, annualInterest, years);
+    }
+
+    public static void calculateRepayments(int principle, float annualInterest, int years) {
+
+        // duplication
+        final byte MONTHS_IN_YEAR = 12;
+        final byte PERCENT = 100;
+        float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
+        short numberOfPayments = (short)(years * MONTHS_IN_YEAR);
+
+        // double monthlyRepaymentAmount = 0;
+
+        System.out.println("MORTGATE"); 
+        System.out.println("--------"); 
+        // System.out.println("Monthly payments: " + monthlyRepaymentAmount ); 
+
+        int paymentsCount = 0;
+        float remainingBalance = (float) principle;
+        System.out.println("remainingBalance conversion: " + remainingBalance);
+        while (remainingBalance > 0) {           
+             /**
+             * FORMULA
+             * - https://www.mortgageretirementprofessor.com/formulas.htm
+             * - B = L[(1 + c)n - (1 + c)p]/[(1 + c)n - 1]
+             */
+            remainingBalance = principle * (((1 + monthlyInterest) * numberOfPayments) - ((1 + monthlyInterest) * paymentsCount)) / (((1 + monthlyInterest) * numberOfPayments) -1);
+            paymentsCount++;
+            System.out.println("Payment " + paymentsCount + ": " + remainingBalance);
+        }
     }
 
     public static double calculateMortgate(
@@ -46,5 +77,4 @@ public class MortgateCalculator {
         // scanner.close(); // closing scanner breaks script?
         return value;
     }
-
 }
