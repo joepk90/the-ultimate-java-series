@@ -13,5 +13,13 @@ public class Main {
             // for you, but you can always add more by pressing Cmd+F8.
             System.out.println("i = " + i);
         }
+
+
+        String message = greetUser("John", "Smith");
+        System.out.println(message);
+    }
+
+    public static String greetUser(String firstNname, String lastName) {
+        return "Hello  " + firstNname + " " + lastName;
     }
 }
