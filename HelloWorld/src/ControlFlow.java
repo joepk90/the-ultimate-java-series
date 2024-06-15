@@ -46,15 +46,7 @@ public class ControlFlow {
 
     public static void simplifiedIfStatements() {
         int income = 120_000;
-
-        boolean hasHighIncome = true;
-        if (income > 100_000)
-            hasHighIncome = true;
-        else {
-            hasHighIncome = false;
-        }
-
+        boolean hasHighIncome = income > 100_000;
         System.out.println(hasHighIncome);
-            
     }
 }
