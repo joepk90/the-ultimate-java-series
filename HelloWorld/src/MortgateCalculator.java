@@ -2,6 +2,9 @@ import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class MortgateCalculator {
+    final static byte MONTHS_IN_YEAR = 12;
+    final static byte PERCENT = 100;
+
     public static void main(String[] args) {
         int principle = (int) readNumber("Principle ($1k - $1M): ", 1000, 1_000_000);
         float annualInterest = (float) readNumber("Annual Interest Rate: ", 1, 30);
@@ -14,11 +17,20 @@ public class MortgateCalculator {
         calculateRepayments(principle, annualInterest, years);
     }
 
-    public static void calculateRepayments(int principle, float annualInterest, int years) {
+    public static double calculateBalance(int principle, float annualInterest, int years, short numberOfPaymentsMade) {
+        float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
+        short numberOfPayments = (short)(years * MONTHS_IN_YEAR);
 
+        double balance = principle
+            * (Math.pow(1 + monthlyInterest, numberOfPayments) - Math.pow(1 + monthlyInterest, numberOfPaymentsMade))
+            / (Math.pow(1 + monthlyInterest, numberOfPayments) - 1);
+
+        return balance;
+    }
+
+    public static void calculateRepayments(int principle, float annualInterest, int years) {
+        
         // duplication
-        final byte MONTHS_IN_YEAR = 12;
-        final byte PERCENT = 100;
         float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
         short numberOfPayments = (short)(years * MONTHS_IN_YEAR);
 
@@ -48,8 +60,6 @@ public class MortgateCalculator {
             float annualInterest,
             byte years
         ) {
-            final byte MONTHS_IN_YEAR = 12;
-            final byte PERCENT = 100;
             float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
             short numberOfPayments = (short)(years * MONTHS_IN_YEAR);
             
