@@ -13,6 +13,11 @@ public class Employee {
         return baseSalery + (hourlyRate & extraHours);
     }
 
+    public int calculateWage() {
+        // example of method overloadin (similar to setting default arguments values)
+        return calculateWage(0); 
+    }
+
     private void setBaseSalary(int baseSalery) {
         if (baseSalery <= 0)
             throw new IllegalArgumentException("Base Salary cannot be 0 or less");
