@@ -13,7 +13,7 @@ public class Employee {
         this.baseSalery = baseSalery;
     }
 
-    public int getBaseSalary() {
+    private int getBaseSalary() {
         return baseSalery;
     }
 
@@ -24,7 +24,7 @@ public class Employee {
         this.hourlyRate = hourlyRate;
     }
 
-    public int getHourlyRate() {
+    private int getHourlyRate() {
         return hourlyRate;
     }
 }
