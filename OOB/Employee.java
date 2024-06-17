@@ -2,6 +2,9 @@ public class Employee {
     private int baseSalery;
     private int hourlyRate;
 
+    // use static fields in situations where the value is independant of objects, 
+    // and should be shared across all instances of the Employee object type
+    public static int numberOfEmployees;
 
 
     // example of constructor overloading (making some arguments optional)
@@ -13,9 +16,14 @@ public class Employee {
         // this.setHourlyRate(0);
     }
 
+    public static void printNumberOfEmployees() {
+        System.out.println(numberOfEmployees);
+    }
+
     public Employee(int baseSalery, int hourlyRate) {
         this.setBaseSalary(baseSalery);
-        this.setHourlyRate(hourlyRate);;
+        this.setHourlyRate(hourlyRate);
+        numberOfEmployees++;
     }
 
     public int calculateWage(int extraHours) {
