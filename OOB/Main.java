@@ -9,5 +9,14 @@ public class Main {
             
             System.out.println(wage);
         }
+
+        // reducing coupling
+        public static void initialiseBrowser(String[] args) {
+            var browser = new Browser();
+
+            // because every method is private ( except navigate) coupling is reduced
+            // as there is only one method which can be accessed from the outside
+            browser.navigate("");
+        }
 }
 
