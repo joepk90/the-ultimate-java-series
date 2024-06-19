@@ -6,10 +6,13 @@ import MortgageProject.MortgageCalculator;
 
 public class MortgageReport {
 
-    private static MortgageCalculator calculator;
+    private MortgageCalculator calculator;
 
-    public static void printMortgage(int principle, float annualInterest, byte years) {
-        calculator = new MortgageCalculator(principle, annualInterest, years);
+    public MortgageReport(MortgageCalculator calculator) {
+        this.calculator = calculator;
+    }
+
+    public void printMortgage() {
         double mortage = calculator.calculateMortgate(); // mortgage repayment amount
         String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortage);
         System.out.println();
@@ -18,12 +21,12 @@ public class MortgageReport {
         System.out.println("Monthly Payments: " + mortgageFormatted);
     }
 
-    public static void printPaymentSchedule(int principle, float annualInterest, byte years) {
+    public void printPaymentSchedule() {
         System.out.println(); 
         System.out.println("PAYMENT SCHEDULE"); 
         System.out.println("----------------"); 
-        for (short month = 1; month <= years * MortgateCalculator.MONTHS_IN_YEAR; month++) {
-            double balance = MortgateCalculator.calculateBalance(month);
+        for (short month = 1; month <= calculator.getYears() * MortgateCalculator.MONTHS_IN_YEAR; month++) {
+            double balance = calculator.calculateBalance(month);
             System.out.println(NumberFormat.getCurrencyInstance().format(balance));
         }
     }
