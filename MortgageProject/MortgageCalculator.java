@@ -1,8 +1,17 @@
 package MortgageProject;
 
 public class MortgageCalculator {
+    private int principle;
+    private float annualInterest;
+    private byte years;
 
-    public static double calculateBalance(int principle, float annualInterest, int years, short numberOfPaymentsMade) {
+    public MortgageCalculator(int principle, float annualInterest, byte years) {
+        this.principle = principle;
+        this.annualInterest = annualInterest;
+        this.years = years;
+    }
+
+    public double calculateBalance(short numberOfPaymentsMade) {
         float monthlyInterest = annualInterest / MortgateCalculator.PERCENT / MortgateCalculator.MONTHS_IN_YEAR;
         short numberOfPayments = (short)(years * MortgateCalculator.MONTHS_IN_YEAR);
     
@@ -18,10 +27,7 @@ public class MortgageCalculator {
         return balance;
     }
 
-    public static double calculateMortgate(
-            int principle,
-            float annualInterest,
-            byte years
+    public double calculateMortgate(
         ) {
             float monthlyInterest = annualInterest / MortgateCalculator.PERCENT / MortgateCalculator.MONTHS_IN_YEAR;
             short numberOfPayments = (short)(years * MortgateCalculator.MONTHS_IN_YEAR);
