@@ -1,11 +1,13 @@
 package MortgageProject;
 
-import com.ultimatejavaseries.Main;
-
 public class MortgageCalculator {
+    public final static byte PERCENT = 100;
+    public final static byte MONTHS_IN_YEAR = 12;
+
     private int principle;
     private float annualInterest;
     private byte years;
+   
 
     public MortgageCalculator(int principle, float annualInterest, byte years) {
         this.principle = principle;
@@ -14,8 +16,8 @@ public class MortgageCalculator {
     }
 
     public double calculateBalance(short numberOfPaymentsMade) {
-        float monthlyInterest = annualInterest / Main.PERCENT / Main.MONTHS_IN_YEAR;
-        short numberOfPayments = (short)(years * Main.MONTHS_IN_YEAR);
+        float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
+        short numberOfPayments = (short)(years * MONTHS_IN_YEAR);
     
          /**
          * FORMULA
@@ -31,8 +33,8 @@ public class MortgageCalculator {
 
     public double calculateMortgate(
         ) {
-            float monthlyInterest = annualInterest / Main.PERCENT / Main.MONTHS_IN_YEAR;
-            short numberOfPayments = (short)(years * Main.MONTHS_IN_YEAR);
+            float monthlyInterest = annualInterest / PERCENT / MONTHS_IN_YEAR;
+            short numberOfPayments = (short)(years * MONTHS_IN_YEAR);
             
     
             double mortage = principle * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments))
