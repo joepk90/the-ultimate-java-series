@@ -27,5 +27,41 @@ public class Main {
             // as there is only one method which can be accessed from the outside
             browser.navigate("");
         }
+
+
+         public static void objectClassDocumentation() {
+
+            // OBJECT METHODS
+            // var obj = new Object()
+            // obj.getClass();
+            // obj.equals();
+            // obj.hashCode();
+            // obj.toString();
+            // obj.notify();
+            // obj.notifyAll();
+
+            // OBJECT HASHCODE
+            var box1 = new TextBox();
+
+            // returns integer calculated based on the address of this object in memory
+            // it does NOT actually return the address of this object in memory.
+            // it returns the hashcode of this object, which the hashed address in memory
+            System.out.println(box1.hashCode());
+            
+            var box2 = box1;
+            System.out.println(box2.hashCode()); // returns the same value
+            
+             // OBJECT EQUALITY
+            System.out.println(box1.equals(box2)); // returns true
+
+            var box3 = new TextBox();
+            System.out.println(box1.equals(box3)); // returns false
+
+            // OBJECT TOSTRING
+            // returns string represenation of an object
+            // returns the full name of the class + the hashcode
+            System.out.println(box1.toString()); 
+            
+        }
 }
 
