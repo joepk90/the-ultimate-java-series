@@ -1,7 +1,8 @@
 public class Main {
 
         public static void main(String[] args) {
-            Main.employeeClassUsage();
+            // Main.employeeClassUsage();
+            Main.InheritanceExample();
         }
 
         public static void employeeClassUsage() {
@@ -10,6 +11,12 @@ public class Main {
 
             int wage = employee.calculateWage(10);
             System.out.println(wage);
+        }
+
+        public static void InheritanceExample() {
+            var control = new UIControl();
+            control.disable();
+            System.out.println(control.isEnabled());
         }
 
         // reducing coupling
