@@ -7,11 +7,11 @@ public class Classes {
     public static void creatingObjects() {
         var textBox1 = new TextBox();
         textBox1.setText("Box 1");
-        System.out.println(textBox1.text.toUpperCase());
+        System.out.println(textBox1.getText().toUpperCase());
 
         var textBox2 = new TextBox();
         textBox2.setText("Box 2");
-        System.out.println(textBox1.text);
+        System.out.println(textBox1.getText());
     }
 
     public static void memoryAllocation() {
@@ -42,6 +42,6 @@ public class Classes {
         // the two varaible on the stack which reference the same TextBox object
 
         textBox2.setText("Hello World");        
-        System.out.println(textBox2.text); // "Hello World
+        System.out.println(textBox2.getText()); // "Hello World
     }
 }
