@@ -1,6 +1,10 @@
 public class Main {
 
         public static void main(String[] args) {
+            Main.employeeClassUsage();
+        }
+
+        public static void employeeClassUsage() {
             var employee = new Employee(50_000, 20);
             Employee.printNumberOfEmployees();
 
