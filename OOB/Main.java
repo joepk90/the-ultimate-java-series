@@ -4,8 +4,12 @@ public class Main {
             // Main.employeeClassUsage();
             // Main.InheritanceExample();
 
-            // var control = new UIControl(true);
-            // Main.upcastingAndDowncasting(control);
+            // because we are casting the control arguemnt to a TextBox instance
+            // in the upcastingAndDowncasting method, this code will cause an exception
+            // we cannot cast the parent class to a child class (a more specialised type)
+            // a check has been added to the upcastingAndDowncasting to prevent the exception
+            var control = new UIControl(true);
+            Main.upcastingAndDowncasting(control);
 
             /**
              * Upcasting
@@ -88,8 +92,11 @@ public class Main {
         }
 
         public static void upcastingAndDowncasting(UIControl control) {
-            var textBox = (TextBox)control;
-            textBox.setText("Hello World");
+            if (control instanceof TextBox) {
+                var textBox = (TextBox)control;
+                textBox.setText("Hello World");
+            }
+
             System.out.println(control);
         }
 }
