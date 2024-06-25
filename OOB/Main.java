@@ -17,6 +17,16 @@ public class Main {
             var control = new TextBox();
             control.disable();
             System.out.println(control.isEnabled());
+
+            var textBox = new TextBox();
+            textBox.setText("Hello World");
+            // Hello World is printed instead of TextBox@251a69d7
+            // becase the method is being overidden
+            System.out.println(textBox.toString()); 
+
+            // this acheives the same result becuase by default the println function calls the toString method
+            System.out.println(textBox); 
+            
         }
 
         // reducing coupling
