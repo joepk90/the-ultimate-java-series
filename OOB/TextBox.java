@@ -1,4 +1,9 @@
 public class TextBox extends UIControl {
+
+    public TextBox() {
+        System.out.println("TextBox");
+    }
+
     private String text = "";
 
     public void setText(String text) {
