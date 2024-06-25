@@ -2,7 +2,20 @@ public class Main {
 
         public static void main(String[] args) {
             // Main.employeeClassUsage();
-            Main.InheritanceExample();
+            // Main.InheritanceExample();
+
+            // var control = new UIControl(true);
+            // Main.upcastingAndDowncasting(control);
+
+            /**
+             * Upcasting
+             * - textBox is an instance of the UIControl class (required argument)
+             * - it is being passed to a method which requires a UIControl object (it's parent)
+             */
+            var textBox = new TextBox();
+            
+            Main.upcastingAndDowncasting(textBox); 
+
         }
 
         public static void employeeClassUsage() {
@@ -72,6 +85,12 @@ public class Main {
             // returns the full name of the class + the hashcode
             System.out.println(box1.toString()); 
             
+        }
+
+        public static void upcastingAndDowncasting(UIControl control) {
+            var textBox = (TextBox)control;
+            textBox.setText("Hello World");
+            System.out.println(control);
         }
 }
 
