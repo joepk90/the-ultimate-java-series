@@ -114,6 +114,9 @@ public class Main {
 
             // this is handled gracefully because of the check in the overridden equals method on the Point class
             System.out.println(point1.equals(new TextBox())); // false
+
+            // comparing the object address in memory
+            System.out.println(point1.equals(point1)); // true
         }
 }
 

@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Point {
     private int x;
     private int y;
@@ -8,10 +10,15 @@ public class Point {
 
     @Override
     public boolean equals(Object obj) {
+
+        // compares the address in memory
+        if (this == obj) 
+            return true;
+
         if (!(obj instanceof Point))
             return false;
 
         var other = (Point)obj;
         return other.x == x && other.y == y;
-    }
+    }    
 }
