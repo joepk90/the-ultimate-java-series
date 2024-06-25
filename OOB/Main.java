@@ -3,23 +3,7 @@ public class Main {
         public static void main(String[] args) {
             // Main.employeeClassUsage();
             // Main.InheritanceExample();
-
-            // because we are casting the control arguemnt to a TextBox instance
-            // in the upcastingAndDowncasting method, this code will cause an exception
-            // we cannot cast the parent class to a child class (a more specialised type)
-            // a check has been added to the upcastingAndDowncasting to prevent the exception
-            var control = new UIControl(true);
-            Main.upcastingAndDowncasting(control);
-
-            /**
-             * Upcasting
-             * - textBox is an instance of the UIControl class (required argument)
-             * - it is being passed to a method which requires a UIControl object (it's parent)
-             */
-            var textBox = new TextBox();
-            
-            Main.upcastingAndDowncasting(textBox); 
-
+            Main.upcastingAndDowncasting();           
         }
 
         public static void employeeClassUsage() {
@@ -91,7 +75,26 @@ public class Main {
             
         }
 
-        public static void upcastingAndDowncasting(UIControl control) {
+        public static void upcastingAndDowncasting() {
+
+             // because we are casting the control arguemnt to a TextBox instance
+            // in the upcastingAndDowncasting method, this code will cause an exception
+            // we cannot cast the parent class to a child class (a more specialised type)
+            // a check has been added to the upcastingAndDowncasting to prevent the exception       
+            var control = new UIControl(true);
+            Main.show(control);
+
+            /**
+             * Upcasting
+             * - textBox is an instance of the UIControl class (required argument)
+             * - it is being passed to a method which requires a UIControl object (it's parent)
+             */
+            var textBox = new TextBox();
+            
+            Main.show(textBox); 
+        }
+
+        public static void show(UIControl control) {
             if (control instanceof TextBox) {
                 var textBox = (TextBox)control;
                 textBox.setText("Hello World");
