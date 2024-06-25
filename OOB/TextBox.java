@@ -1,6 +1,7 @@
 public class TextBox extends UIControl {
 
     public TextBox() {
+        super(true); // super must be called as the first statement at the top of the contructor
         System.out.println("TextBox");
     }
 
