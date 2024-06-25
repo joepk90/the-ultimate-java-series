@@ -3,7 +3,8 @@ public class Main {
         public static void main(String[] args) {
             // Main.employeeClassUsage();
             // Main.InheritanceExample();
-            Main.upcastingAndDowncasting();           
+            // Main.upcastingAndDowncasting();           
+            Main.comparingObjects();           
         }
 
         public static void employeeClassUsage() {
@@ -101,6 +102,18 @@ public class Main {
             }
 
             System.out.println(control);
+        }
+
+        public static void comparingObjects() {
+            var point1 = new Point(1,2);
+            var point2 = new Point(1,2);
+            System.out.println(point1 == point2); // false
+
+            // the below statement returns true because we have overidden the equals method in the Point class
+            System.out.println(point1.equals(point2)); // true
+
+            // this is handled gracefully because of the check in the overridden equals method on the Point class
+            System.out.println(point1.equals(new TextBox())); // false
         }
 }
 
