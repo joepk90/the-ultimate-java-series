@@ -17,6 +17,12 @@ public class UIControl {
         System.out.println("UIControl");
     }
 
+    // rather than commenting out, method overloading has been used
+    public UIControl() {
+        this.isEnabled = false;
+        System.out.println("UIControl");
+    }
+
     public void enable() {
         isEnabled = true;
     }
