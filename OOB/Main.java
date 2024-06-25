@@ -4,7 +4,8 @@ public class Main {
             // Main.employeeClassUsage();
             // Main.InheritanceExample();
             // Main.upcastingAndDowncasting();           
-            Main.comparingObjects();           
+            // Main.comparingObjects();           
+            Main.polymorphism();           
         }
 
         public static void employeeClassUsage() {
@@ -122,6 +123,26 @@ public class Main {
             System.out.println(point1.hashCode()); // 994
             System.out.println(point2.hashCode()); // 994
 
+        }
+
+        public static void polymorphism() {
+            UIControl[] controls = { new TextBox(), new CheckBox() };
+
+            // PROBLEM:
+            // procedual way of rendering an instance of the controls array
+            // not dynamic...
+            // for (var control : controls ) {
+            //     if (control instanceof TextBox) {
+                    // render TextBox
+                // } else if (control instanceof CheckBox) {
+                    // render CheckBox
+                // }
+            // }
+
+            // SOLUTION (using polymorphism)
+             for (var control : controls ) {
+                control.render();
+             }
         }
 }
 

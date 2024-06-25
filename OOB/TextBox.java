@@ -7,7 +7,11 @@ public class TextBox extends UIControl {
         System.out.println("TextBox");
     }
 
-    
+    @Override
+    public void render() {
+       System.out.println("Render TextBox");
+    }
+
     @Override
     public String toString() {
         return text;
