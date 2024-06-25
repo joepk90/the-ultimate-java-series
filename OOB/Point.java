@@ -20,5 +20,11 @@ public class Point {
 
         var other = (Point)obj;
         return other.x == x && other.y == y;
-    }    
+    }
+
+    // whenever we override the equals method, we should also override the hashcode method
+    @Override
+    public int hashCode() {
+      return Objects.hash(x, y);
+    }
 }

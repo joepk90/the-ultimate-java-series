@@ -117,6 +117,11 @@ public class Main {
 
             // comparing the object address in memory
             System.out.println(point1.equals(point1)); // true
+
+            // override hashcode method
+            System.out.println(point1.hashCode()); // 994
+            System.out.println(point2.hashCode()); // 994
+
         }
 }
 
