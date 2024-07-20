@@ -13,5 +13,10 @@ public interface TaxCalculator {
     // return income - expenses;
     // }
 
+    // AVOID USING: new Java feature - private methods
+    // private double getTaxableIncome(double income, double expenses) {
+    // return income - expenses;
+    // }
+
     double calculateTax();
 }
