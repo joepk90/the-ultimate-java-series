@@ -4,6 +4,7 @@ import MortgageProject.Console;
 import MortgageProject.MortgageCalculator;
 import MortgageProject.MortgageReport;
 import MortgageProject.TaxCalculator2018;
+import MortgageProject.TaxCalculator2019;
 import MortgageProject.TaxReport;
 
 public class Main {
@@ -26,7 +27,12 @@ public class Main {
     public static void runTaxCalculator() {
         System.out.println("TAX CALCULATOR LOGIC: ");
         // poor mans dependancy injection
-        var calculator = new TaxCalculator2018(100_000);
-        var report = new TaxReport(calculator);
+        var report = new TaxReport(new TaxCalculator2018(100_000));
+        System.out.println("tax calculator 2018 report:");
+        report.show();
+
+        report.setCalculator(new TaxCalculator2019());
+        System.out.println("tax calculator 2019 report:");
+        report.show();
     }
 }
