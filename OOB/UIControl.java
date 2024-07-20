@@ -1,4 +1,4 @@
-public class UIControl {
+public abstract class UIControl {
     
     /**
      * Protected Access Modifiers
@@ -23,13 +23,12 @@ public class UIControl {
         System.out.println("UIControl");
     }
 
-    public void render() {
-        
-    }
+    public abstract void render();
 
     public void enable() {
         isEnabled = true;
     }
+
     public void disable() {
         isEnabled = false;
     }

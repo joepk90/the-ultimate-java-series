@@ -5,7 +5,8 @@ public class Main {
             // Main.InheritanceExample();
             // Main.upcastingAndDowncasting();           
             // Main.comparingObjects();           
-            Main.polymorphism();           
+            // Main.polymorphism();           
+            Main.abstractClassesAndMethods();           
         }
 
         public static void employeeClassUsage() {
@@ -83,8 +84,8 @@ public class Main {
             // in the upcastingAndDowncasting method, this code will cause an exception
             // we cannot cast the parent class to a child class (a more specialised type)
             // a check has been added to the upcastingAndDowncasting to prevent the exception       
-            var control = new UIControl(true);
-            Main.show(control);
+            // var control = new UIControl(true); // no longer possible because UIControl is an abstract class
+            // Main.show(control);
 
             /**
              * Upcasting
@@ -143,6 +144,14 @@ public class Main {
              for (var control : controls ) {
                 control.render();
              }
+
+        }
+
+        public static void abstractClassesAndMethods() {
+            // the following is not possible the UIControl is an abstract class
+            // and the render method is an abstract method
+            // UIControl uicontrol = new UIControl();
+            // uicontrol.render();
         }
 }
 
