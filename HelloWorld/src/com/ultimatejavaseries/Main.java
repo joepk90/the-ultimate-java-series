@@ -26,13 +26,17 @@ public class Main {
 
     public static void runTaxCalculator() {
         System.out.println("TAX CALCULATOR LOGIC: ");
-        // poor mans dependancy injection
+        // constuctor injection (poor mans dependancy injection)
         var report = new TaxReport(new TaxCalculator2018(100_000));
         System.out.println("tax calculator 2018 report:");
         report.show();
 
+        // setter injection
         report.setCalculator(new TaxCalculator2019());
         System.out.println("tax calculator 2019 report:");
         report.show();
+
+        // method injection
+        report.show(new TaxCalculator2018(100_000));
     }
 }

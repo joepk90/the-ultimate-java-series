@@ -13,6 +13,12 @@ public class TaxReport {
         System.out.println(tax);
     }
 
+    // method injection (dependancy injection)
+    public void show(TaxCalculator calculator) {
+        var tax = calculator;
+        System.out.println(tax);
+    }
+
     // a setter allows us to change dependancies used in an object,
     // throughout the lifetime of the program
     public void setCalculator(TaxCalculator calculator) {
