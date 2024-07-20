@@ -9,6 +9,7 @@ public class TaxCalculator2018 implements TaxCalculator {
 
     @Override
     public double calculateTax() {
+        // TaxCalculator.minimumTax = 10; not possible - interface fields are final
         return taxableIncome * 0.3;
     }
 }
