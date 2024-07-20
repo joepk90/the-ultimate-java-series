@@ -1,3 +1,7 @@
+import MortgageProject.TaxCalculator2018;
+import MortgageProject.TaxCalculator2019;
+import MortgageProject.TaxReport;
+
 public class Main {
 
         public static void main(String[] args) {
@@ -6,7 +10,8 @@ public class Main {
             // Main.upcastingAndDowncasting();           
             // Main.comparingObjects();           
             // Main.polymorphism();           
-            Main.abstractClassesAndMethods();           
+            // Main.abstractClassesAndMethods();           
+            Main.dependancyInjection();           
         }
 
         public static void employeeClassUsage() {
@@ -152,6 +157,23 @@ public class Main {
             // and the render method is an abstract method
             // UIControl uicontrol = new UIControl();
             // uicontrol.render();
+        }
+
+
+        public static void dependancyInjection() {
+            System.out.println("TAX CALCULATOR LOGIC: ");
+            // constuctor injection (poor mans dependancy injection)
+            var report = new TaxReport(new TaxCalculator2018(100_000));
+            System.out.println("tax calculator 2018 report:");
+            report.show();
+
+            // setter injection
+            report.setCalculator(new TaxCalculator2019());
+            System.out.println("tax calculator 2019 report:");
+            report.show();
+
+            // method injection
+            report.show(new TaxCalculator2018(100_000));
         }
 }
 
