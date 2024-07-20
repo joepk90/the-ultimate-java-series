@@ -1,9 +1,9 @@
 package MortgageProject;
 
-public class TaxCalculator {
+public class TaxCalculator2018 {
     private double taxableIncome;
 
-    public TaxCalculator(double taxableIncome) {
+    public TaxCalculator2018(double taxableIncome) {
         this.taxableIncome = taxableIncome;
     }
 
