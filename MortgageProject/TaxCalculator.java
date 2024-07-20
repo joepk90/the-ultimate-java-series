@@ -6,6 +6,12 @@ public interface TaxCalculator {
     // all fields are static so can be used directly wihtout implementing a class
     // float minimumTax = 100;
 
-    double calculateTax();
+    // AVOID USING: new Java feature - interface methods
+    // avoid puttin implementation logic into an inteface.
+    // see AbstractClassCalculator for how this type of logic should be handled
+    // static double getTaxableIncome(double income, double expenses) {
+    // return income - expenses;
+    // }
 
+    double calculateTax();
 }

@@ -1,6 +1,6 @@
 package MortgageProject;
 
-public class TaxCalculator2018 implements TaxCalculator {
+public class TaxCalculator2018 extends AbstractClassCalculator {
     private double taxableIncome;
 
     public TaxCalculator2018(double taxableIncome) {
@@ -9,6 +9,8 @@ public class TaxCalculator2018 implements TaxCalculator {
 
     @Override
     public double calculateTax() {
+        getTaxableIncome(taxableIncome, taxableIncome);
+
         // TaxCalculator.minimumTax = 10; not possible - interface fields are final
         return taxableIncome * 0.3;
     }
