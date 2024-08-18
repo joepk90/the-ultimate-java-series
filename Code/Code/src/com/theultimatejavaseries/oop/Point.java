@@ -1,5 +1,6 @@
 package com.theultimatejavaseries.oop;
-import java.util.Objects;
+
+// import java.util.Objects;
 
 public class Point {
     private int x;

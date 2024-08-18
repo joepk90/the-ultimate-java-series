@@ -31,6 +31,7 @@ public class Types {
         System.out.println(age);
     }
 
+    @SuppressWarnings("unused")
     public static void primativeTypes() {
         int viewsCount = 123_456_789; // underscores can be used to make ints more readeable
         long viewsCountLong = 3_123_456_789L; // long - notice the ending suffex "L"
@@ -119,6 +120,7 @@ public class Types {
 
     public static void constants() {
         // by convention, constants are declared using capital letters
+        @SuppressWarnings("unused")
         final float PI = 3.14F;
         // PI = 1; // final prevents pi from being reasigned
     }
@@ -278,6 +280,7 @@ public class Types {
     }
 
     public static void readingInput() {
+        @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Age: ");

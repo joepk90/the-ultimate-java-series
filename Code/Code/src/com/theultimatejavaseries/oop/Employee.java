@@ -43,6 +43,7 @@ public class Employee {
         this.baseSalery = baseSalery;
     }
 
+    @SuppressWarnings("unused")
     private int getBaseSalary() {
         return baseSalery;
     }
@@ -54,6 +55,7 @@ public class Employee {
         this.hourlyRate = hourlyRate;
     }
 
+    @SuppressWarnings("unused")
     private int getHourlyRate() {
         return hourlyRate;
     }
