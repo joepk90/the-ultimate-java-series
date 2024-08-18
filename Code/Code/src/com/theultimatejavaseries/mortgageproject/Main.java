@@ -1,8 +1,4 @@
-package com.theultimatejavaseries.helloworld;
-
-import com.theultimatejavaseries.mortgageproject.Console;
-import com.theultimatejavaseries.mortgageproject.MortgageCalculator;
-import com.theultimatejavaseries.mortgageproject.MortgageReport;
+package com.theultimatejavaseries.mortgageproject;
 
 public class Main {
     public static void main(String[] args) {
