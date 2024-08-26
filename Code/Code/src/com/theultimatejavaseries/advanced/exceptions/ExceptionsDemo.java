@@ -37,6 +37,11 @@ public class ExceptionsDemo {
 
     }
 
+    public static void throwingExceptions() {
+        var account = new Account();
+        account.deposit(-1);
+    }
+
     public static void sayHello(String name) {
         System.out.println(name.toUpperCase());
     }

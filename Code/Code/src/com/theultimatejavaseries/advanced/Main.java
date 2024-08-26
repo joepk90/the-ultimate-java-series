@@ -9,6 +9,7 @@ public class Main {
 
     public static void exceptions() {
         // ExceptionsDemo.show();
-        ExceptionsDemo.catchingExceptions();
+        // ExceptionsDemo.catchingExceptions();
+        ExceptionsDemo.throwingExceptions();
     }
 }
