@@ -37,12 +37,14 @@ public class ExceptionsDemo {
 
     }
 
-    public static void throwingExceptions() {
+    public static void throwingExceptions() throws IOException {
         var account = new Account();
         try {
             account.deposit(-1);
         } catch (IOException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
+            System.out.println("Logging");
+            throw e;
         }
     }
 
