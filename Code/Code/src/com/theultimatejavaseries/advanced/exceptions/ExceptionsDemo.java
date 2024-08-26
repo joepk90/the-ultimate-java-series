@@ -48,6 +48,16 @@ public class ExceptionsDemo {
         }
     }
 
+    public static void customExceptions() {
+        var account = new Account();
+        try {
+            account.withdraw(10);
+        } catch (InsufficientFundsException e) {
+            // e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+    }
+
     public static void sayHello(String name) {
         System.out.println(name.toUpperCase());
     }
