@@ -21,7 +21,7 @@ public class ExceptionsDemo {
                 var reader = new FileReader("file.txt");
         // var writeer = new FileWriter("...");
         ) {
-            var value = reader.read();
+            reader.read();
             new SimpleDateFormat().parse("");
         } catch (FileNotFoundException e) {
             // // e.printStackTrace();
