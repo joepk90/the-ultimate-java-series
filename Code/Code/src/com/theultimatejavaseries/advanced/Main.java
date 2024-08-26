@@ -8,6 +8,7 @@ public class Main {
     }
 
     public static void exceptions() {
-        ExceptionsDemo.show();
+        // ExceptionsDemo.show();
+        ExceptionsDemo.catchingExceptions();
     }
 }
