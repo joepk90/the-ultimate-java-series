@@ -2,6 +2,7 @@ package com.theultimatejavaseries.advanced.exceptions;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+// import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -16,7 +17,10 @@ public class ExceptionsDemo {
     public static void catchingExceptions() {
         // try with resources statement
         // the reader will be closed automatically when the try block closes
-        try (var reader = new FileReader("file.txt")) {
+        try (
+                var reader = new FileReader("file.txt");
+        // var writeer = new FileWriter("...");
+        ) {
             var value = reader.read();
             new SimpleDateFormat().parse("");
         } catch (FileNotFoundException e) {
