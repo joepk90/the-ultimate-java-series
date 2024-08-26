@@ -39,7 +39,11 @@ public class ExceptionsDemo {
 
     public static void throwingExceptions() {
         var account = new Account();
-        account.deposit(-1);
+        try {
+            account.deposit(-1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void sayHello(String name) {
