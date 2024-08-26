@@ -14,9 +14,9 @@ public class ExceptionsDemo {
     }
 
     public static void catchingExceptions() {
-        FileReader reader = null;
-        try {
-            reader = new FileReader("file.txt");
+        // try with resources statement
+        // the reader will be closed automatically when the try block closes
+        try (var reader = new FileReader("file.txt")) {
             var value = reader.read();
             new SimpleDateFormat().parse("");
         } catch (FileNotFoundException e) {
@@ -29,14 +29,6 @@ public class ExceptionsDemo {
         catch (IOException | ParseException e) {
             // IOException ex = new FileNotFoundException();
             System.out.println("Could not read data.");
-        } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
 
     }
