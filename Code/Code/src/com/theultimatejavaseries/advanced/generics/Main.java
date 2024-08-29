@@ -1,5 +1,7 @@
 package com.theultimatejavaseries.advanced.generics;
 
+import java.lang.Integer;
+
 public class Main {
     public static void main(String[] args) {
         var list = new List();
@@ -14,5 +16,14 @@ public class Main {
 
         // using the Object type for our List, means we are unable to catch type casting
         // bugs like this at compile time.
+
+        // using Generics with the GenericList:
+        var integerList = new GenericList<Integer>();
+        integerList.add(1);
+        int integerNumber = integerList.get(0);
+
+        var userList = new GenericList<User>();
+        userList.add(new User());
+        User user = userList.get(0);
     }
 }
