@@ -26,9 +26,9 @@ public class Main {
         integerList.add(1);
         int integerNumber = integerList.get(0);
 
-        var userList = new GenericList<User>();
-        userList.add(new User());
-        User user = userList.get(0);
+        // var userList = new GenericList<User>();
+        // userList.add(new User());
+        // User user = userList.get(0);
 
         // Generics only accepts reference types, not primative types
         // the following won't work:
@@ -48,5 +48,16 @@ public class Main {
         GenericList<Integer> numbers = new GenericList<>();
         numbers.add(1); // Boxing: Integer.valueOf(1)
         int primativeNumber = numbers.get(0); // Unboxing
+    }
+
+    public static void contraints() {
+        // compilation error, because String does not inherit from a Number:
+        // https://docs.oracle.com/javase/8/docs/api/java/lang/Number.html
+        // var userList = new GenericList<String>();
+
+        // only classes that derive from the Number class can be used
+        new GenericList<Number>();
+        new GenericList<Integer>();
+        new GenericList<Float>();
     }
 }
