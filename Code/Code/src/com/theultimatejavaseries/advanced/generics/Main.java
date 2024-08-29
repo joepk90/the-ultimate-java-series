@@ -4,6 +4,10 @@ import java.lang.Integer;
 
 public class Main {
     public static void main(String[] args) {
+        basics();
+    }
+
+    public static void basics() {
         var list = new List();
         list.add(1); // java compiler will convert this value to Integer.valueOf(1)
         list.add("1");
@@ -44,6 +48,5 @@ public class Main {
         GenericList<Integer> numbers = new GenericList<>();
         numbers.add(1); // Boxing: Integer.valueOf(1)
         int primativeNumber = numbers.get(0); // Unboxing
-
     }
 }
