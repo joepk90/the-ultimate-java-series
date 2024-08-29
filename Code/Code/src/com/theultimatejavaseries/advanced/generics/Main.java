@@ -25,5 +25,25 @@ public class Main {
         var userList = new GenericList<User>();
         userList.add(new User());
         User user = userList.get(0);
+
+        // Generics only accepts reference types, not primative types
+        // the following won't work:
+        // new GenericList<int>();
+        // new GenericList<short>();
+        // new GenericList<boolean>();
+        // new GenericList<gloat>();
+
+        // in order to use a primative values inside a class using geenrics,
+        // we have to the wrapper class.
+        //
+        // Every Primative Type in Java has a wrapper class:
+        // int -> Integer
+        // float -> Float
+        // boolean -> Boolean
+
+        GenericList<Integer> numbers = new GenericList<>();
+        numbers.add(1); // Boxing: Integer.valueOf(1)
+        int primativeNumber = numbers.get(0); // Unboxing
+
     }
 }
