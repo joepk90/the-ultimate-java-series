@@ -56,8 +56,15 @@ public class Main {
         // var userList = new GenericList<String>();
 
         // only classes that derive from the Number class can be used
-        new GenericList<Number>();
+        // new GenericList<Number>();
         new GenericList<Integer>();
         new GenericList<Float>();
+
+        // only classes that are comparable can be used
+        new GenericList<Short>();
+        new GenericList<Integer>();
+        new GenericList<String>();
+        new GenericList<User>();
+
     }
 }
