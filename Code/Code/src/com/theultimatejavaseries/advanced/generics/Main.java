@@ -7,7 +7,8 @@ public class Main {
         // basics();
         // contraints();
         // comparableInterface();
-        genericMethods();
+        // genericMethods();
+        multipleTypeParameters();
     }
 
     public static void basics() {
@@ -93,5 +94,9 @@ public class Main {
 
         var userMax = Utils.max(new User(10), new User(20));
         System.out.println(userMax);
+    }
+
+    public static void multipleTypeParameters() {
+        Utils.print(1, 10);
     }
 }
