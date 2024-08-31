@@ -108,6 +108,12 @@ public class Main {
         // - Under the hood in byte code we are dealing with a single class
         // - A generic list of Instructor is not a sub type of Generic List of User
         var instructors = new GenericList<Instructor>();
+
+        // one solution - convert instructors list to users list (sudo code)
+        // var users = new GenericList<User>();
+        // for (Instructor i : instructors) users.add(instructors[i])
+        // Utils.printUsers(users);
+
         Utils.printUsers(instructors);
     }
 }
