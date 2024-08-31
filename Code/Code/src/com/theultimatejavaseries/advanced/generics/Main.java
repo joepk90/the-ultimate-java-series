@@ -4,7 +4,9 @@ import java.lang.Integer;
 
 public class Main {
     public static void main(String[] args) {
-        basics();
+        // basics();
+        // contraints();
+        comparableInterface();
     }
 
     public static void basics() {
@@ -66,5 +68,21 @@ public class Main {
         new GenericList<String>();
         new GenericList<User>();
 
+    }
+
+    public static void comparableInterface() {
+        var user1 = new User(10);
+        var user2 = new User(20);
+
+        // the following expression is not possible
+        // if (user1 < user1)
+
+        // coomparable interator required
+        if (user1.compareTo(user2) < 0)
+            System.out.println("user1 < user2");
+        else if (user1.compareTo(user2) == 0)
+            System.out.println("user1 == user2");
+        else
+            System.out.println("user1 > user2");
     }
 }
