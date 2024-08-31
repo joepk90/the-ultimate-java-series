@@ -21,8 +21,10 @@ public class Main {
 
     public static void iterableInterface() {
         var list = new GenericList<String>();
-        var iterator = list.iterator();
+        list.add("a");
+        list.add("b");
 
+        var iterator = list.iterator();
         while (iterator.hasNext()) {
             // [a, b, c]
             /// ^
