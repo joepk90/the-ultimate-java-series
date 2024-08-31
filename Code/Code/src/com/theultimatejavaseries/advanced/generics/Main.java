@@ -104,7 +104,10 @@ public class Main {
     public static void genericClassesAndInheritance() {
         Utils.printUser(new Instructor(10));
 
-        var users = new GenericList<User>();
-        Utils.printUsers(users);
+        // Compilation Error Caused:
+        // - Under the hood in byte code we are dealing with a single class
+        // - A generic list of Instructor is not a sub type of Generic List of User
+        var instructors = new GenericList<Instructor>();
+        Utils.printUsers(instructors);
     }
 }
