@@ -8,7 +8,8 @@ public class Main {
         // contraints();
         // comparableInterface();
         // genericMethods();
-        multipleTypeParameters();
+        // multipleTypeParameters();
+        genericClassesAndInheritance();
     }
 
     public static void basics() {
@@ -98,5 +99,9 @@ public class Main {
 
     public static void multipleTypeParameters() {
         Utils.print(1, 10);
+    }
+
+    public static void genericClassesAndInheritance() {
+        Utils.printUser(new Instructor(10));
     }
 }
