@@ -9,7 +9,8 @@ public class Main {
         // comparableInterface();
         // genericMethods();
         // multipleTypeParameters();
-        genericClassesAndInheritance();
+        // genericClassesAndInheritance();
+        wildcards();
     }
 
     public static void basics() {
@@ -115,5 +116,11 @@ public class Main {
         // Utils.printUsers(users);
 
         Utils.printUsers(instructors);
+
+    }
+
+    public static void wildcards() {
+        // using wild cards we can pass a list of anything
+        Utils.printUsers(new GenericList<Integer>());
     }
 }
