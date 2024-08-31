@@ -6,7 +6,8 @@ public class Main {
     public static void main(String[] args) {
         // basics();
         // contraints();
-        comparableInterface();
+        // comparableInterface();
+        genericMethods();
     }
 
     public static void basics() {
@@ -84,5 +85,13 @@ public class Main {
             System.out.println("user1 == user2");
         else
             System.out.println("user1 > user2");
+    }
+
+    public static void genericMethods() {
+        var max = Utils.max(1, 3);
+        System.out.println(max);
+
+        var userMax = Utils.max(new User(10), new User(20));
+        System.out.println(userMax);
     }
 }
