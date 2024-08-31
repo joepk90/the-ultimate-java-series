@@ -23,4 +23,13 @@ public class Utils {
         // adding is not possible extends is used
         // users.add()
     }
+
+    public static void createGenericUserList(GenericList<? super User> users) {
+        // GenericList<Object> temp = new GenericList<>();
+        users.add(new User());
+        users.add(new Instructor(1));
+
+        // reading (get) is not possible when super is used
+        // User x = users.get(0);
+    }
 }
