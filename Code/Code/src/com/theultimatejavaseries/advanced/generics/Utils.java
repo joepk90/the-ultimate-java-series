@@ -15,7 +15,12 @@ public class Utils {
         System.out.println(user);
     }
 
-    public static void printUsers(GenericList<?> users) {
+    // class CAP#1 (capture class) extends User {}
+    // similar to - class Instructor extends User {}
+    public static void printUsers(GenericList<? extends User> users) {
+        User x = users.get(0);
 
+        // adding is not possible extends is used
+        // users.add()
     }
 }

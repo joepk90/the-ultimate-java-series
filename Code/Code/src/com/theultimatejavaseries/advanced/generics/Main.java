@@ -121,6 +121,6 @@ public class Main {
 
     public static void wildcards() {
         // using wild cards we can pass a list of anything
-        Utils.printUsers(new GenericList<Integer>());
+        Utils.printUsers(new GenericList<Instructor>());
     }
 }
