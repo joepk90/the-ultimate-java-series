@@ -103,5 +103,8 @@ public class Main {
 
     public static void genericClassesAndInheritance() {
         Utils.printUser(new Instructor(10));
+
+        var users = new GenericList<User>();
+        Utils.printUsers(users);
     }
 }
