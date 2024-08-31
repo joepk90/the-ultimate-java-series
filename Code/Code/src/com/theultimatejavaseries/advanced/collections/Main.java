@@ -4,7 +4,8 @@ import com.theultimatejavaseries.advanced.generics.GenericList;
 
 public class Main {
     public static void main(String[] args) {
-        theNeedForIterables();
+        // theNeedForIterables();
+        iterableInterface();
     }
 
     public static void theNeedForIterables() {
@@ -16,5 +17,24 @@ public class Main {
         // GenericList class
         // for (var item : list.items)
         // System.out.println(item);
+    }
+
+    public static void iterableInterface() {
+        var list = new GenericList<String>();
+        var iterator = list.iterator();
+
+        while (iterator.hasNext()) {
+            // [a, b, c]
+            /// ^
+
+            var current = iterator.next();
+            System.out.println(current);
+        }
+
+        // foreach loop actually uses the iterator methods above (see bytecode)
+        // foreach loop is actually just syntaxible sugar for iterator methods
+        for (var item : list) {
+            System.out.println(item);
+        }
     }
 }
