@@ -14,7 +14,8 @@ public class Main {
         // listInterface();
         // comparableInterface();
         // comparatorInterface();
-        queueInterface();
+        // queueInterface();
+        setInterface();
 
     }
 
@@ -81,5 +82,9 @@ public class Main {
 
     public static void queueInterface() {
         QueueDemo.show();
+    }
+
+    public static void setInterface() {
+        SetDemo.show();
     }
 }
