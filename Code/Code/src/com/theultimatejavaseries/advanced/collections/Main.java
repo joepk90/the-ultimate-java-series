@@ -1,5 +1,9 @@
 package com.theultimatejavaseries.advanced.collections;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
+
 import com.theultimatejavaseries.advanced.generics.GenericList;
 
 public class Main {
@@ -7,7 +11,8 @@ public class Main {
         // theNeedForIterables();
         // iterab leInterface();
         // collectionInterface();
-        listInterface();
+        // listInterface();
+        comparableInterface();
 
     }
 
@@ -49,5 +54,15 @@ public class Main {
 
     public static void listInterface() {
         ListDemo.show();
+    }
+
+    public static void comparableInterface() {
+        List<Customer> customers = new ArrayList<Customer>();
+        customers.add(new Customer("a"));
+        customers.add(new Customer("b"));
+        customers.add(new Customer("c"));
+
+        Collections.sort(customers);
+        System.out.println(customers); // [a, b, c]
     }
 }
