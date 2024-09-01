@@ -13,7 +13,8 @@ public class Main {
         // collectionInterface();
         // listInterface();
         // comparableInterface();
-        comparatorInterface();
+        // comparatorInterface();
+        queueInterface();
 
     }
 
@@ -76,5 +77,9 @@ public class Main {
         // order customers by email
         Collections.sort(customers, new EmaiilComparator());
         System.out.println(customers); // [c, b, a]
+    }
+
+    public static void queueInterface() {
+        QueueDemo.show();
     }
 }
