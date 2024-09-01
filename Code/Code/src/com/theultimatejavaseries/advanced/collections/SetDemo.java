@@ -8,6 +8,11 @@ import java.util.Collections;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Set Interface:
+ * - the Set interface represents a unique list of values.
+ */
+
 public class SetDemo {
     public static void show() {
         // the order of a set is not guaranteed

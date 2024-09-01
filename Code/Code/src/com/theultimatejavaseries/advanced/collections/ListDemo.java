@@ -4,6 +4,12 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * List Interface:
+ * the List interface extends the Collection interface and provides additional
+ * functionality to access elements by their index.
+ */
+
 public class ListDemo {
     public static void show() {
         List<String> list = new ArrayList<String>();

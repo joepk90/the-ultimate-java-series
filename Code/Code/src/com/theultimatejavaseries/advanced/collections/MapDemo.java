@@ -5,6 +5,11 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Map Interface:
+ * - the Map interface represents a set of key value pairs.
+ */
+
 public class MapDemo {
     public static void hashMapDocumentation() {
         List<Customer> customers = new ArrayList<Customer>();

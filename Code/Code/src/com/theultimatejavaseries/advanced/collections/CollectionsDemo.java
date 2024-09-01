@@ -4,6 +4,19 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
+/**
+ * Collection Interface:
+ * used to represent a collection of objects that support the following
+ * operations:
+ * - add
+ * - remove
+ * - get
+ * 
+ * in Collections we cannot access elements by their index.
+ * the List interface extends the Collection interface and provides that
+ * additional functionality.
+ */
+
 public class CollectionsDemo {
     public static void show() {
         Collection<String> collection = new ArrayList<String>();
