@@ -5,8 +5,9 @@ import com.theultimatejavaseries.advanced.generics.GenericList;
 public class Main {
     public static void main(String[] args) {
         // theNeedForIterables();
-        // iterableInterface();
-        collectionInterface();
+        // iterab leInterface();
+        // collectionInterface();
+        listInterface();
 
     }
 
@@ -44,5 +45,9 @@ public class Main {
 
     public static void collectionInterface() {
         CollectionsDemo.show();
+    }
+
+    public static void listInterface() {
+        ListDemo.show();
     }
 }
