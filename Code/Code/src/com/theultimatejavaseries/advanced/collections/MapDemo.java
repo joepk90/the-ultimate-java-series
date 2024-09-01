@@ -49,5 +49,19 @@ public class MapDemo {
         map.replace("e1", new Customer("a++", "e1")); // replaces an entry
         System.out.println(map); // returns {e1=a++, e2=b}
 
+        // maps themeselves are not iterable, but offer methods which are...
+        // for (var item : map)
+
+        for (var key : map.keySet())
+            System.out.println(key); // returns: e1, e2...
+
+        for (var entry : map.entrySet()) {
+            System.out.println(entry); // returns: e1=a, e2=b...
+            System.out.println(entry.getValue()); // returns: a, b...
+            System.out.println(entry.getKey()); // returns: e1, e2...
+        }
+
+        for (var customer : map.values())
+            System.out.println(customer); // returns: a, b
     }
 }
