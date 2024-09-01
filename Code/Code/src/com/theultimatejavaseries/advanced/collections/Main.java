@@ -15,8 +15,8 @@ public class Main {
         // comparableInterface();
         // comparatorInterface();
         // queueInterface();
-        setInterface();
-
+        // setInterface();
+        mapInterface();
     }
 
     public static void theNeedForIterables() {
@@ -86,5 +86,9 @@ public class Main {
 
     public static void setInterface() {
         SetDemo.show();
+    }
+
+    public static void mapInterface() {
+        MapDemo.show();
     }
 }
