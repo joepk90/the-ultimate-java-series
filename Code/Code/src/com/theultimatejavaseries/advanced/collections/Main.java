@@ -12,7 +12,8 @@ public class Main {
         // iterab leInterface();
         // collectionInterface();
         // listInterface();
-        comparableInterface();
+        // comparableInterface();
+        comparatorInterface();
 
     }
 
@@ -58,11 +59,22 @@ public class Main {
 
     public static void comparableInterface() {
         List<Customer> customers = new ArrayList<Customer>();
-        customers.add(new Customer("a"));
-        customers.add(new Customer("b"));
-        customers.add(new Customer("c"));
+        customers.add(new Customer("a", "e3"));
+        customers.add(new Customer("b", "e2"));
+        customers.add(new Customer("c", "e1"));
 
         Collections.sort(customers);
         System.out.println(customers); // [a, b, c]
+    }
+
+    public static void comparatorInterface() {
+        List<Customer> customers = new ArrayList<Customer>();
+        customers.add(new Customer("a", "e3"));
+        customers.add(new Customer("b", "e2"));
+        customers.add(new Customer("c", "e1"));
+
+        // order customers by email
+        Collections.sort(customers, new EmaiilComparator());
+        System.out.println(customers); // [c, b, a]
     }
 }
