@@ -33,4 +33,12 @@ public class LamdasDemo {
 
         greet(message -> System.out.println(prefix + message));
     }
+
+    public static void methodReference() {
+        // greet(message -> System.out.println(message));
+
+        // Class/Object::method
+        greet(System.out::println);
+
+    }
 }

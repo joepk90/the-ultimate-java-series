@@ -7,5 +7,6 @@ public class Main {
         LamdasDemo.anonymousInnerClasses();
         LamdasDemo.lamdaExpressions();
         new LamdasDemo().variableCapture();
+        LamdasDemo.methodReference();
     }
 }
