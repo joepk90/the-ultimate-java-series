@@ -1,6 +1,7 @@
 package com.theultimatejavaseries.advanced.lamdas;
 
 public class LamdasDemo {
+    public String prefix = "-";
 
     public static void greet(Printer printer) {
         printer.print("Hello World");
@@ -25,5 +26,11 @@ public class LamdasDemo {
         });
         greet(message -> System.out.println(message));
         // Printer printer = message -> System.out.println(message);
+    }
+
+    public void variableCapture() {
+        // public String prefix = "-";
+
+        greet(message -> System.out.println(prefix + message));
     }
 }

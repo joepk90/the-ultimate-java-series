@@ -6,5 +6,6 @@ public class Main {
         LamdasDemo.functionalInterfaces();
         LamdasDemo.anonymousInnerClasses();
         LamdasDemo.lamdaExpressions();
+        new LamdasDemo().variableCapture();
     }
 }
