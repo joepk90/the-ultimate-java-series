@@ -7,6 +7,13 @@ public class LamdasDemo {
         printer.print("Hello World");
     }
 
+    // signiture of this method matches the print method of the Printer interface
+    public static void print(String message) {
+    }
+
+    public void instancePrint(String message) {
+    }
+
     public static void functionalInterfaces() {
         greet(new ConsolePrinter());
     }
@@ -40,5 +47,13 @@ public class LamdasDemo {
         // Class/Object::method
         greet(System.out::println);
 
+        // examples of passing static method references to the greet method
+        greet(message -> print(message));
+        greet(LamdasDemo::print);
+
+        // examples of passing instance method references to the greet method
+        var demo = new LamdasDemo();
+        greet(message -> demo.instancePrint(message));
+        greet(demo::instancePrint);
     }
 }
