@@ -18,4 +18,12 @@ public class LamdasDemo {
             }
         });
     }
+
+    public static void lamdaExpressions() {
+        greet((String message) -> {
+            System.out.println(message);
+        });
+        greet(message -> System.out.println(message));
+        // Printer printer = message -> System.out.println(message);
+    }
 }
