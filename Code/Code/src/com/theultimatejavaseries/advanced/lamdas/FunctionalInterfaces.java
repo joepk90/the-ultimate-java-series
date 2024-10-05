@@ -1,6 +1,7 @@
 package com.theultimatejavaseries.advanced.lamdas;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 public class FunctionalInterfaces {
 
@@ -40,6 +41,14 @@ public class FunctionalInterfaces {
         // what should be done...
         intList.forEach(item -> System.out.println(item)); // the forEach method requires a Consumer
         // the forEach method consumes an argument, but does not return the value
+
+        // chaining consumers example
+        List<String> stringList = List.of("a", "b", "c");
+        Consumer<String> print = item -> System.out.println(item);
+        Consumer<String> printUpperCase = item -> System.out.println(item.toUpperCase());
+
+        stringList.forEach(print.andThen(printUpperCase).andThen(print));
+
     }
 
     /**
