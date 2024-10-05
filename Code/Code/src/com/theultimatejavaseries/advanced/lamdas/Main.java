@@ -13,5 +13,6 @@ public class Main {
 
         // functional interface examples
         FunctionalInterfaces.consumerInterfaces();
+        FunctionalInterfaces.supplierInterfaces();
     }
 }

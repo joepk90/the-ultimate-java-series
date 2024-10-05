@@ -2,6 +2,7 @@ package com.theultimatejavaseries.advanced.lamdas;
 
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 public class FunctionalInterfaces {
 
@@ -56,7 +57,24 @@ public class FunctionalInterfaces {
      * The Opposite of the Consumer interface. It represents an operation that takes
      * no input
      * and returns a value. It supplies a value.
+     * 
+     * Example Supplier Interfaces:
+     * https://docs.oracle.com/javase/8/docs/api/java/util/function/DoubleSupplier.html
+     * https://docs.oracle.com/javase/8/docs/api/java/util/function/IntSupplier.html
+     * https://docs.oracle.com/javase/8/docs/api/java/util/function/LongSupplier.html
+     * https://docs.oracle.com/javase/8/docs/api/java/util/function/BooleanSupplier.html
      */
+
+    public static void supplierInterfaces() {
+        Supplier<Double> getRandom = () -> Math.random();
+
+        // Lazy Evaluation:
+        // logic passed to the Supplier interface won't be called until the get method
+        // is called
+        var random = getRandom.get();
+        System.out.println(random);
+
+    }
 
     /**
      * Functions:
