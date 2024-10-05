@@ -3,6 +3,12 @@ package com.theultimatejavaseries.advanced.lamdas;
 public class LamdasDemo {
     public String prefix = "-";
 
+    public LamdasDemo() {
+    }
+
+    public LamdasDemo(String message) {
+    }
+
     public static void greet(Printer printer) {
         printer.print("Hello World");
     }
@@ -55,5 +61,9 @@ public class LamdasDemo {
         var demo = new LamdasDemo();
         greet(message -> demo.instancePrint(message));
         greet(demo::instancePrint);
+
+        // examples of passing a value to a constructor
+        greet(message -> new LamdasDemo(message));
+        greet(LamdasDemo::new);
     }
 }
