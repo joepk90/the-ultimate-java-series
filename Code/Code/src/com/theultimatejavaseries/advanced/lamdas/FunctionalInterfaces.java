@@ -93,6 +93,23 @@ public class FunctionalInterfaces {
         Function<String, Integer> map = str -> str.length();
         var length = map.apply("sky");
         System.out.println(length);
+
+        // "Key:value"
+
+        // transformations:
+        // first: "Key=value"
+        // second: "key=value"
+        Function<String, String> replaceColon = str -> str.replace(":", "=");
+        Function<String, String> addBraces = str -> "{" + str + "}";
+
+        // declarative programming (what needs to be done, not how it should be done)
+        var resultOne = replaceColon
+                .andThen(addBraces)
+                .apply("Key:value");
+        System.out.println(resultOne);
+
+        var resultTwo = addBraces.compose(replaceColon).apply("Key:value");
+        System.out.println(resultTwo);
     }
 
     /**
