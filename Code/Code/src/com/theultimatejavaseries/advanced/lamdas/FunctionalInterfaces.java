@@ -1,6 +1,7 @@
 package com.theultimatejavaseries.advanced.lamdas;
 
 import java.util.List;
+import java.util.function.BinaryOperator;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -143,5 +144,36 @@ public class FunctionalInterfaces {
 
         var resultNoLeftBrace = hasNoLeftBrace.test("{key:value}");
         System.out.println("hasNoLeftBrace: " + resultNoLeftBrace);
+    }
+
+    /**
+     * Binary Operator (extends the Function Interface)
+     * 
+     * The Binary Operator is a special type of function which extends the Function
+     * Interface, taking two arguments
+     * 
+     * https://docs.oracle.com/javase/8/docs/api/java/util/function/BinaryOperator.html
+     * https://docs.oracle.com/javase/8/docs/api/java/util/function/IntBinaryOperator.html
+     * https://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html
+     */
+
+    public static void binaryOperator() {
+
+        // has two operands and returns a single result
+        // var x = 1 + 2;
+
+        BinaryOperator<Integer> add = (a, b) -> a + b;
+        var result = add.apply(1, 2);
+        System.out.println(result);
+
+        // a, b -> a + b -> square
+        Function<Integer, Integer> square = a -> a * a;
+        var resultTwo = add.andThen(square).apply(1, 2);
+        System.out.println(resultTwo);
+
+        // NOTE: IntBinaryOperator
+        // primative integers have to be autoboxed inside instances of the Integer class
+        // so if we are dealing with a large number of primative integers, it is more
+        // efficient to use the the IntBinaryOperator interface
     }
 }
