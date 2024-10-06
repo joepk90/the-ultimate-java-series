@@ -127,5 +127,21 @@ public class FunctionalInterfaces {
         Predicate<String> isLongerThan5 = str -> str.length() > 5;
         var result = isLongerThan5.test("sky");
         System.out.println(result);
+
+        // combining predicates
+        Predicate<String> hasLeftBrace = str -> str.startsWith("{");
+        Predicate<String> hasRightBrace = str -> str.endsWith("}");
+        Predicate<String> hasLeftAndRightBraces = hasLeftBrace.and(hasRightBrace);
+        Predicate<String> hasLeftOrRightBraces = hasLeftBrace.or(hasRightBrace);
+        Predicate<String> hasNoLeftBrace = hasLeftBrace.negate(); // negate inverts the condition
+
+        var resultAnd = hasLeftAndRightBraces.test("{key:value}");
+        System.out.println("hasLeftAndRightBraces: " + resultAnd);
+
+        var resultOr = hasLeftOrRightBraces.test("{key:value}");
+        System.out.println("hasLeftOrRightBraces: " + resultOr);
+
+        var resultNoLeftBrace = hasNoLeftBrace.test("{key:value}");
+        System.out.println("hasNoLeftBrace: " + resultNoLeftBrace);
     }
 }
