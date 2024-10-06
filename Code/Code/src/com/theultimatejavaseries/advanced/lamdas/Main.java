@@ -12,7 +12,8 @@ public class Main {
         // LamdasDemo.methodReference();
 
         // functional interface examples
-        FunctionalInterfaces.consumerInterfaces();
-        FunctionalInterfaces.supplierInterfaces();
+        // FunctionalInterfaces.consumerInterfaces();
+        // FunctionalInterfaces.supplierInterfaces();
+        FunctionalInterfaces.functionInterfaces();
     }
 }

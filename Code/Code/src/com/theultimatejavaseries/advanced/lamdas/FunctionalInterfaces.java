@@ -2,6 +2,7 @@ package com.theultimatejavaseries.advanced.lamdas;
 
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class FunctionalInterfaces {
@@ -80,7 +81,19 @@ public class FunctionalInterfaces {
      * Functions:
      * The Function interface represents a function that can map a value to a
      * different value.
+     * 
+     * https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html
+     * https://docs.oracle.com/javase/8/docs/api/java/util/function/BiFunction.html
+     * https://docs.oracle.com/javase/8/docs/api/java/util/function/IntFunction.html
+     * https://docs.oracle.com/javase/8/docs/api/java/util/function/ToIntFunction.html
+     * https://docs.oracle.com/javase/8/docs/api/java/util/function/IntToLongFunction.html
      */
+
+    public static void functionInterfaces() {
+        Function<String, Integer> map = str -> str.length();
+        var length = map.apply("sky");
+        System.out.println(length);
+    }
 
     /**
      * Predicates:
