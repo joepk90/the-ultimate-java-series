@@ -6,6 +6,7 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.function.UnaryOperator;
 
 public class FunctionalInterfaces {
 
@@ -175,5 +176,21 @@ public class FunctionalInterfaces {
         // primative integers have to be autoboxed inside instances of the Integer class
         // so if we are dealing with a large number of primative integers, it is more
         // efficient to use the the IntBinaryOperator interface
+    }
+
+    /**
+     * Unary Operator
+     * 
+     * The Unary Operator extends the Function interface.
+     * 
+     * https://docs.oracle.com/javase/8/docs/api/java/util/function/UnaryOperator.html
+     */
+
+    public static void unaryOperator() {
+        UnaryOperator<Integer> square = n -> n * n;
+        UnaryOperator<Integer> increment = n -> n + 1;
+
+        var result = increment.andThen(square).apply(1);
+        System.out.println(result);
     }
 }

@@ -16,6 +16,7 @@ public class Main {
         // FunctionalInterfaces.supplierInterfaces();
         // FunctionalInterfaces.functionInterfaces();
         // FunctionalInterfaces.predicateInterfaces();
-        FunctionalInterfaces.binaryOperator();
+        // FunctionalInterfaces.binaryOperator();
+        FunctionalInterfaces.unaryOperator();
     }
 }
