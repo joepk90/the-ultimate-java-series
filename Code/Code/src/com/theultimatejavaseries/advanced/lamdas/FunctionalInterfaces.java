@@ -3,6 +3,7 @@ package com.theultimatejavaseries.advanced.lamdas;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class FunctionalInterfaces {
@@ -116,6 +117,15 @@ public class FunctionalInterfaces {
      * Predicates:
      * The Predicate interface represents an operation that takes an object,
      * and checks to see if that object satisfies some criteria.
+     * 
+     * https://docs.oracle.com/javase/8/docs/api/java/util/function/Predicate.html
+     * https://docs.oracle.com/javase/8/docs/api/java/util/function/BiPredicate.html
+     * https://docs.oracle.com/javase/8/docs/api/java/util/function/IntPredicate.html
      */
 
+    public static void predicateInterfaces() {
+        Predicate<String> isLongerThan5 = str -> str.length() > 5;
+        var result = isLongerThan5.test("sky");
+        System.out.println(result);
+    }
 }

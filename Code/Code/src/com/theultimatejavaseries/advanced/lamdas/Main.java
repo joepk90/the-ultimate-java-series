@@ -14,6 +14,7 @@ public class Main {
         // functional interface examples
         // FunctionalInterfaces.consumerInterfaces();
         // FunctionalInterfaces.supplierInterfaces();
-        FunctionalInterfaces.functionInterfaces();
+        // FunctionalInterfaces.functionInterfaces();
+        FunctionalInterfaces.predicateInterfaces();
     }
 }
