@@ -152,6 +152,16 @@ public class StreamsDemo {
          * - limit(10) = limit(pageSize)
          */
 
+        // takeWhile (stops the moment the takewhile condition returns false)
+        movies.stream()
+                .takeWhile(m -> m.getLikes() < 30) // returns a, b
+                .forEach(m -> System.out.println(m.getTitle()));
+
+        // dropWhile (opposite to takeWhile - skips all elements which match condition)
+        movies.stream()
+                .dropWhile(m -> m.getLikes() < 30) // returns c
+                .forEach(m -> System.out.println(m.getTitle()));
+
     }
 
 }
