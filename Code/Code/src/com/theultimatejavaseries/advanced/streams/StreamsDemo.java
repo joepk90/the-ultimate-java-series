@@ -76,6 +76,15 @@ public class StreamsDemo {
                 // .mapToInt(movie -> movie.getLikes())
                 .map(movie -> movie.getTitle())
                 .forEach(name -> System.out.println(name));
+
+        // flatMap method
+        var stream = Stream.of(List.of(1, 2, 3), List.of(4, 5, 6));
+        // stream.forEach(list -> System.out.println(list)); // [1, 2, 3] [4, 5, 6]
+
+        // convert each list to a stream
+        // (each list item is returned as an interger to the original stream)
+        stream.flatMap(list -> list.stream()).forEach(n -> System.out.println(n));
+        // returns: 1, 2, 3, 4, 5, 6
     }
 
 }
