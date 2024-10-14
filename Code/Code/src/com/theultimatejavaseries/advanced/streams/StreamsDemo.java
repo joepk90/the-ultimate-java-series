@@ -1,6 +1,8 @@
 package com.theultimatejavaseries.advanced.streams;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
  * Streams:
@@ -31,6 +33,33 @@ public class StreamsDemo {
         var count2 = movies.stream() // every collection in Java has a stream method
                 .filter(movie -> movie.getLikes() > 10);
 
+    }
+
+    public static void creatingStreams() {
+        // classes that implements the Collection interface can to return a stream
+        // Collection<Integer> x;
+        // x.stream();
+
+        // stream examples
+        int[] numbers = { 1, 2, 3 };
+        Arrays.stream(numbers)
+                .forEach(n -> System.err.println(n));
+
+        // stream using static method on Stream interface
+        Stream.of(1, 2, 3, 4);
+
+        // generate infinite amount of random numbers using generate method (forEach
+        // terminates the stream)
+        var stream = Stream.generate(() -> Math.random());
+        stream
+                .limit(3) // disable limit to print execute operation infinite times
+                .forEach(n -> System.out.println(n)); // prints 3 random numbers
+
+        // generate infinite amount of random numbers using iterate method (forEach
+        // terminates the stream)
+        Stream.iterate(1, n -> n + 1)
+                .limit(10) // disable limit to print execute operation infinite times
+                .forEach(n -> System.out.println(n));
     }
 
 }
