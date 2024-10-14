@@ -5,6 +5,7 @@ public class Main {
         // StreamsDemo.imperativeOrFunctional();
         // StreamsDemo.creatingStreams();
         // StreamsDemo.mappingElements();
-        StreamsDemo.filteringElements();
+        // StreamsDemo.filteringElements();
+        StreamsDemo.slicingStreams();
     }
 }

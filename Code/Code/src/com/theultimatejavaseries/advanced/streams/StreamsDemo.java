@@ -117,4 +117,23 @@ public class StreamsDemo {
                 .forEach(m -> System.out.println(m.getTitle())); // terminal operation
     }
 
+    /**
+     * Slicing Streams:
+     * - limit(n)
+     * - skip(n)
+     * - takeWhile(predicate)
+     * - dropWhile(predicate)
+     */
+    public static void slicingStreams() {
+        var movies = List.of(
+                new Movie("a", 10),
+                new Movie("b", 20),
+                new Movie("c", 30));
+
+        // limit
+        movies.stream()
+                .limit(2) // returns a, b
+                .forEach(m -> System.out.println(m.getTitle()));
+    }
+
 }
