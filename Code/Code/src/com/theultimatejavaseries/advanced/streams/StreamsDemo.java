@@ -62,4 +62,20 @@ public class StreamsDemo {
                 .forEach(n -> System.out.println(n));
     }
 
+    public static void mappingElements() {
+        var movies = List.of(
+                new Movie("a", 10),
+                new Movie("b", 20),
+                new Movie("c", 30));
+
+        // map method
+        movies.stream()
+                // primative variations:
+                // .mapToDouble(null)
+                // .mapToLong(null)
+                // .mapToInt(movie -> movie.getLikes())
+                .map(movie -> movie.getTitle())
+                .forEach(name -> System.out.println(name));
+    }
+
 }
