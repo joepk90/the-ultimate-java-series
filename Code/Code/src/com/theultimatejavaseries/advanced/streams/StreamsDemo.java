@@ -2,6 +2,7 @@ package com.theultimatejavaseries.advanced.streams;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 /**
@@ -12,6 +13,22 @@ import java.util.stream.Stream;
  * objects in a declarative (or more accurately functional) way
  * - functional programming is a special type of declarative programming but
  * with additional concepts
+ * 
+ * ----------
+ * 
+ * Intermediate vs Terminal Stream Operations:
+ * Intermediate Operations return a value (a new stream / pipe).
+ * 
+ * Terminal Operations start consuming a value but return void.
+ * If we don’t call a terminal operation, nothing happens.
+ * The Terminal operation invokes the intermediate transformations.
+ * 
+ * intermediate operations:
+ * - map
+ * - filter
+ * 
+ * terminal operations
+ * - forEach
  */
 
 public class StreamsDemo {
@@ -85,6 +102,19 @@ public class StreamsDemo {
         // (each list item is returned as an interger to the original stream)
         stream.flatMap(list -> list.stream()).forEach(n -> System.out.println(n));
         // returns: 1, 2, 3, 4, 5, 6
+    }
+
+    public static void filteringElements() {
+        var movies = List.of(
+                new Movie("a", 10),
+                new Movie("b", 20),
+                new Movie("c", 30));
+
+        Predicate<Movie> isPopular = m -> m.getLikes() > 10;
+
+        movies.stream()
+                .filter(isPopular) // intermediate operation
+                .forEach(m -> System.out.println(m.getTitle())); // terminal operation
     }
 
 }
