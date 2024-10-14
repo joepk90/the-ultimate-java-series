@@ -134,6 +134,24 @@ public class StreamsDemo {
         movies.stream()
                 .limit(2) // returns a, b
                 .forEach(m -> System.out.println(m.getTitle()));
+
+        // skip
+        movies.stream()
+                .skip(2) // returns c
+                .forEach(m -> System.out.println(m.getTitle()));
+
+        /**
+         * skip is useful for pagination - for example:
+         * -> 1000 movies
+         * -> 10 movies per page
+         * -> show 3rd page
+         * -> skip 20
+         * 
+         * code:
+         * - skip( (page - 1) x pageSize)
+         * - limit(10) = limit(pageSize)
+         */
+
     }
 
 }
