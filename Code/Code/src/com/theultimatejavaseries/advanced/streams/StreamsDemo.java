@@ -214,10 +214,15 @@ public class StreamsDemo {
                 new Movie("b", 20),
                 new Movie("c", 30));
 
+        // peek method:
+        // - is useful for troubleshooting problems
+        // - intermediate operation (returns the stream)
         movies.stream()
                 .filter(m -> m.getLikes() > 10)
+                .peek(m -> System.out.println("filtered: " + m.getTitle()))
                 .map(Movie::getTitle)
-                .forEach(System.out::println); // returns: 10, 20, 30
-    }
+                .peek(t -> System.out.println("mapped: " + t))
+                .forEach(System.out::println);
 
+    }
 }
