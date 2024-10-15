@@ -176,8 +176,8 @@ public class StreamsDemo {
 
         // to use the sorted method (the movies class must implement the Comparable
         // interface: public class Movie implements Comparable<Movie>)
-        movies.stream()
-                .sorted().forEach(m -> System.out.println(m.getTitle()));
+        // movies.stream()
+        // .sorted().forEach(m -> System.out.println(m.getTitle()));
 
         // alternatively a function which matches the signiture of Comparable interface
         // can be passed to the sorted method
