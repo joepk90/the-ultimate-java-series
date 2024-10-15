@@ -8,6 +8,7 @@ public class Main {
         // StreamsDemo.filteringElements();
         // StreamsDemo.slicingStreams();
         // StreamsDemo.sortingStreams();
-        StreamsDemo.gettingUniqueElements();
+        // StreamsDemo.gettingUniqueElements();
+        StreamsDemo.peekingElements();
     }
 }
