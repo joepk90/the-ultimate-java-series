@@ -7,6 +7,7 @@ public class Main {
         // StreamsDemo.mappingElements();
         // StreamsDemo.filteringElements();
         // StreamsDemo.slicingStreams();
-        StreamsDemo.sortingStreams();
+        // StreamsDemo.sortingStreams();
+        StreamsDemo.gettingUniqueElements();
     }
 }

@@ -195,4 +195,17 @@ public class StreamsDemo {
 
     }
 
+    public static void gettingUniqueElements() {
+        var movies = List.of(
+                new Movie("a", 10),
+                new Movie("a", 10),
+                new Movie("b", 20),
+                new Movie("c", 30));
+
+        movies.stream()
+                .map(Movie::getLikes)
+                .distinct()
+                .forEach(System.out::println); // returns: 10, 20, 30
+    }
+
 }
