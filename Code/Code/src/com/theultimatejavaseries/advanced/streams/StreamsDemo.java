@@ -1,6 +1,7 @@
 package com.theultimatejavaseries.advanced.streams;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
@@ -183,6 +184,13 @@ public class StreamsDemo {
         // can be passed to the sorted method
         movies.stream()
                 .sorted((a, b) -> a.getTitle().compareTo(b.getTitle()))
+                .forEach(m -> System.out.println(m.getTitle()));
+
+        // using the Comparator interface static comparing method
+        // this simplifies our code as we can pass a method reference
+        movies.stream()
+                // .sorted(Comparator.comparing(Movie::getTitle))
+                .sorted(Comparator.comparing(Movie::getTitle).reversed()) // pass a method reference
                 .forEach(m -> System.out.println(m.getTitle()));
 
     }
