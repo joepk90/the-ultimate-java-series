@@ -25,10 +25,14 @@ import java.util.stream.Stream;
  * The Terminal operation invokes the intermediate transformations.
  * 
  * intermediate operations:
- * - map
+ * - map / flatMap
  * - filter
+ * - limit / skip
+ * - sorted
+ * - distinct
+ * - peek
  * 
- * terminal operations
+ * terminal operations:
  * - forEach
  */
 
