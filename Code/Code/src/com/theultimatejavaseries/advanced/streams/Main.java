@@ -9,6 +9,7 @@ public class Main {
         // StreamsDemo.slicingStreams();
         // StreamsDemo.sortingStreams();
         // StreamsDemo.gettingUniqueElements();
-        StreamsDemo.peekingElements();
+        // StreamsDemo.peekingElements();
+        StreamsDemo.simpleReducers();
     }
 }

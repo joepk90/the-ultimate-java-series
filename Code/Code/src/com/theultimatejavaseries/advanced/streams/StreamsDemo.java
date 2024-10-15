@@ -34,6 +34,17 @@ import java.util.stream.Stream;
  * 
  * terminal operations:
  * - forEach
+ * 
+ * reducers:
+ * - count
+ * - anyMatch(predicate)
+ * - allMatch(predicate)
+ * - noneMatch(predicate)
+ * - findFirst
+ * - gindAny
+ * - max(comparator)
+ * - min(comparator)
+ * 
  */
 
 public class StreamsDemo {
@@ -227,6 +238,44 @@ public class StreamsDemo {
                 .map(Movie::getTitle)
                 .peek(t -> System.out.println("mapped: " + t))
                 .forEach(System.out::println);
+    }
+
+    public static void simpleReducers() {
+        var movies = List.of(
+                new Movie("a", 10),
+                new Movie("b", 20),
+                new Movie("c", 30));
+
+        // get list count
+        movies.stream().count();
+
+        // checks if any element matches the condition
+        var resultAnyMatch = movies.stream().anyMatch(m -> m.getLikes() > 20); // boolean
+        System.out.println(resultAnyMatch); // true
+
+        // checks if every element matches the condition
+        var resultAllMatch = movies.stream().allMatch(m -> m.getLikes() > 20); // boolean
+        System.out.println(resultAllMatch); // false
+
+        // checks if no element matches the condition
+        var resultNoneMatch = movies.stream().noneMatch(m -> m.getLikes() > 20); // boolean
+        System.out.println(resultNoneMatch); // false
+
+        // finds first element
+        var resultFindFirst = movies.stream().findFirst().get();
+        System.out.println(resultFindFirst.getTitle()); // a
+
+        // finds any element
+        var resultFindAny = movies.stream().findAny().get();
+        System.out.println(resultFindAny.getTitle()); // a
+
+        // finds element with the max (movie with max number of likes)
+        var resultMax = movies.stream().max(Comparator.comparing(Movie::getLikes)).get();
+        System.out.println(resultMax.getTitle()); // c
+
+        // finds element with the min (movie with min number of likes)
+        var resultMin = movies.stream().min(Comparator.comparing(Movie::getLikes)).get();
+        System.out.println(resultMin.getTitle()); // a
 
     }
 }
