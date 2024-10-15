@@ -164,4 +164,27 @@ public class StreamsDemo {
 
     }
 
+    public static void sortingStreams() {
+        var movies = List.of(
+                new Movie("b", 10),
+                new Movie("a", 20),
+                new Movie("c", 30));
+
+        // by default, a stream will maintain the order of the original data source
+        movies.stream()
+                .forEach(m -> System.out.println(m.getTitle()));
+
+        // to use the sorted method (the movies class must implement the Comparable
+        // interface: public class Movie implements Comparable<Movie>)
+        movies.stream()
+                .sorted().forEach(m -> System.out.println(m.getTitle()));
+
+        // alternatively a function which matches the signiture of Comparable interface
+        // can be passed to the sorted method
+        movies.stream()
+                .sorted((a, b) -> a.getTitle().compareTo(b.getTitle()))
+                .forEach(m -> System.out.println(m.getTitle()));
+
+    }
+
 }

@@ -1,6 +1,6 @@
 package com.theultimatejavaseries.advanced.streams;
 
-public class Movie {
+public class Movie implements Comparable<Movie> {
     private String title;
     private int likes;
 
@@ -15,5 +15,10 @@ public class Movie {
 
     public String getTitle() {
         return title;
+    }
+
+    @Override
+    public int compareTo(Movie o) {
+        return 0;
     }
 }

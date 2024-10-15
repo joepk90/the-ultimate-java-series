@@ -6,6 +6,7 @@ public class Main {
         // StreamsDemo.creatingStreams();
         // StreamsDemo.mappingElements();
         // StreamsDemo.filteringElements();
-        StreamsDemo.slicingStreams();
+        // StreamsDemo.slicingStreams();
+        StreamsDemo.sortingStreams();
     }
 }
