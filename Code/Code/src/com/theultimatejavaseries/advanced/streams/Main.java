@@ -11,6 +11,7 @@ public class Main {
         // StreamsDemo.gettingUniqueElements();
         // StreamsDemo.peekingElements();
         // StreamsDemo.simpleReducers();
-        StreamsDemo.reducingStreams();
+        // StreamsDemo.reducingStreams();
+        StreamsDemo.collectors();
     }
 }
