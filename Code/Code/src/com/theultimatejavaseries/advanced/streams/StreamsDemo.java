@@ -3,6 +3,8 @@ package com.theultimatejavaseries.advanced.streams;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.BinaryOperator;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -277,5 +279,28 @@ public class StreamsDemo {
         var resultMin = movies.stream().min(Comparator.comparing(Movie::getLikes)).get();
         System.out.println(resultMin.getTitle()); // a
 
+    }
+
+    public static void reducingStreams() {
+        var movies = List.of(
+                new Movie("a", 10),
+                new Movie("b", 20),
+                new Movie("c", 30));
+
+        Optional<Integer> sumOptional = movies.stream()
+                .map(m -> m.getLikes())
+                .reduce(Integer::sum);
+
+        Integer sumInteger = movies.stream()
+                .map(m -> m.getLikes())
+                .reduce(0, Integer::sum);
+
+        // reduce method process:
+        // [10, 20, 30]
+        // [30, 30]
+        // [60]
+
+        System.out.println(sumInteger); // 60
+        System.out.println(sumOptional.orElse(0)); // 60
     }
 }

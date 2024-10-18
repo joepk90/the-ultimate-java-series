@@ -10,6 +10,7 @@ public class Main {
         // StreamsDemo.sortingStreams();
         // StreamsDemo.gettingUniqueElements();
         // StreamsDemo.peekingElements();
-        StreamsDemo.simpleReducers();
+        // StreamsDemo.simpleReducers();
+        StreamsDemo.reducingStreams();
     }
 }
