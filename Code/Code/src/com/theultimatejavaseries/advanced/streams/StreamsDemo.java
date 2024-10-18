@@ -420,4 +420,22 @@ public class StreamsDemo {
 
         System.out.println(resultMappingjoin); // {THRILLER=a, ACTION=b, c}
     }
+
+    public static void partitioningElements() {
+        var movies = List.of(
+                new Movie("a", 10, Genre.THRILLER),
+                new Movie("b", 20, Genre.ACTION),
+                new Movie("c", 30, Genre.ACTION));
+
+        // returns: Map<Boolean, String>
+        var result = movies.stream()
+                .collect(Collectors.partitioningBy(
+                        m -> m.getLikes() > 20,
+                        // downstream collector is passed
+                        Collectors.mapping(
+                                Movie::getTitle,
+                                Collectors.joining(", "))));
+
+        System.out.println(result); // {false=a, b, true=c}
+    }
 }

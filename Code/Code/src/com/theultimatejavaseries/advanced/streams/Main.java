@@ -13,7 +13,8 @@ public class Main {
         // StreamsDemo.simpleReducers();
         // StreamsDemo.reducingStreams();
         // StreamsDemo.collectors();
-        StreamsDemo.groupingElements();
+        // StreamsDemo.groupingElements();
+        StreamsDemo.partitioningElements();
 
     }
 }
