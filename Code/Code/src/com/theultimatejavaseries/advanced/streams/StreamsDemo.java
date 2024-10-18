@@ -8,6 +8,7 @@ import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
@@ -437,5 +438,27 @@ public class StreamsDemo {
                                 Collectors.joining(", "))));
 
         System.out.println(result); // {false=a, b, true=c}
+    }
+
+    /**
+     * Primative Type Streams:
+     * for primative types, it's more efficient to use a specialised types:
+     * - IntStream
+     * - LongStream
+     * - DoubleStream
+     * 
+     * all other operations (mapping, filtering, slicing, collecting) can be applied
+     * to primative type streams as well
+     */
+    public static void primativeTypeStreams() {
+        IntStream.of(1, 2, 3)
+                .forEach(System.out::println); // 1, 2, 3
+
+        IntStream.rangeClosed(1, 5)
+                .forEach(System.out::println); // 1, 2, 3, 4, 5
+
+        IntStream.range(1, 5)
+                .forEach(System.out::println); // 1, 2, 3, 4
+
     }
 }

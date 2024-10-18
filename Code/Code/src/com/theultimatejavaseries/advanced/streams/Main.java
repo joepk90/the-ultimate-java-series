@@ -14,7 +14,8 @@ public class Main {
         // StreamsDemo.reducingStreams();
         // StreamsDemo.collectors();
         // StreamsDemo.groupingElements();
-        StreamsDemo.partitioningElements();
+        // StreamsDemo.partitioningElements();
+        StreamsDemo.primativeTypeStreams();
 
     }
 }
