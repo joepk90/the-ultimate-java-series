@@ -369,4 +369,22 @@ public class StreamsDemo {
 
         System.out.println(resultMapJoined); // b, c
     }
+
+    public static void groupingElements() {
+        var movies = List.of(
+                new Movie("a", 10, Genre.THRILLER),
+                new Movie("b", 20, Genre.ACTION),
+                new Movie("c", 30, Genre.ACTION));
+
+        // returns: Map<Genre, List<Movie>
+        var resultList = movies.stream()
+                .collect(Collectors.groupingBy(Movie::getGenre));
+
+        System.out.println(resultList);
+        // returns:
+        // {
+        // ACTION=[movie.reference@1111111, movie.reference@22222222],
+        // THRILLER=[movie.reference@33333333]
+        // }
+    }
 }

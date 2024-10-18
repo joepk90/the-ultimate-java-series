@@ -12,6 +12,8 @@ public class Main {
         // StreamsDemo.peekingElements();
         // StreamsDemo.simpleReducers();
         // StreamsDemo.reducingStreams();
-        StreamsDemo.collectors();
+        // StreamsDemo.collectors();
+        StreamsDemo.groupingElements();
+
     }
 }
