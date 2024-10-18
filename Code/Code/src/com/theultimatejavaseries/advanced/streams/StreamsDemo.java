@@ -386,5 +386,38 @@ public class StreamsDemo {
         // ACTION=[movie.reference@1111111, movie.reference@22222222],
         // THRILLER=[movie.reference@33333333]
         // }
+
+        // returns: Map<Genre, Set<Movie>>
+        var resultSet = movies.stream()
+                .collect(Collectors.groupingBy(
+                        Movie::getGenre,
+                        Collectors.toSet()));
+
+        System.out.println(resultSet);
+        // returns:
+        // {
+        // ACTION=[movie.reference@1111111, movie.reference@22222222],
+        // THRILLER=[movie.reference@33333333]
+        // }
+
+        // count the number of movies in each category (genre)
+        // returns: Map<Genre, Long>
+        var resultCount = movies.stream()
+                .collect(Collectors.groupingBy(
+                        Movie::getGenre,
+                        Collectors.counting()));
+
+        System.out.println(resultCount); // {THRILLER=1, ACTION=2}
+
+        // returns: Map<Genre, String>
+        var resultMappingjoin = movies.stream()
+                .collect(Collectors.groupingBy(
+                        Movie::getGenre,
+                        // downstream collector is passed
+                        Collectors.mapping(
+                                Movie::getTitle,
+                                Collectors.joining(", "))));
+
+        System.out.println(resultMappingjoin); // {THRILLER=a, ACTION=b, c}
     }
 }
