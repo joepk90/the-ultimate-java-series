@@ -307,6 +307,13 @@ public class StreamsDemo {
         System.out.println(sumOptional.orElse(0)); // 60
     }
 
+    /**
+     * Collectors:
+     * Used for collecting the result of our stream into a data structure, such as a
+     * list, set or map. Collectors can also be used for grouping, partitioning and
+     * mapping data - really useful operations!
+     */
+
     public static void collectors() {
         var movies = List.of(
                 new Movie("a", 10),
