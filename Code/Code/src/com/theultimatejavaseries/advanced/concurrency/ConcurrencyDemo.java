@@ -29,9 +29,12 @@ public class ConcurrencyDemo {
         // System.out.println(Thread.currentThread().getId()); // returns thread ID (1)
         System.out.println(Thread.currentThread().getName()); // returns thread name (main)
         
-        Thread thread = new Thread(new DownloadFileTask());
-
         // when this program runs, the code to download a file will be executed in a seperate thread
-        thread.start();
+        // start 10 threads using a for loop
+        for (int i = 0; i <10; i++) { 
+            Thread thread = new Thread(new DownloadFileTask());
+            thread.start();
+        }
+        
     }
 }
