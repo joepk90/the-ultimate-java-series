@@ -5,6 +5,7 @@ public class Main {
         // ConcurrencyDemo.processesAndThreads();
         // ConcurrencyDemo.startingAndPausingThreads();
         // ConcurrencyDemo.joiningThreads();
-        ConcurrencyDemo.interruptingThreads();
+        // ConcurrencyDemo.interruptingThreads();
+        ConcurrencyDemo.raceConditions();
     }
 }

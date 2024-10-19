@@ -77,7 +77,7 @@ public class ConcurrencyDemo {
     public static void interruptingThreads() {
         // when dealing with long lived tasks we should give our
         // users the ability to cancel
-        Thread thread = new Thread(new DownloadFileTask(true));
+        Thread thread = new Thread(new DownloadFileTask(true, new DownloadStatus()));
         thread.start();
 
         // make the main thread wait for 1 second
@@ -92,6 +92,16 @@ public class ConcurrencyDemo {
         // calling the interrupt method only sends an interrupt request to the thread
         // it is up to thread to decide if it should stop the current process
         thread.interrupt();
+
+    }
+
+    public static void raceConditions() {
+        var status = new DownloadStatus();
+
+        for (int i = 0; i < 10; i++) {
+            Thread thread = new Thread(new DownloadFileTask(true, status));
+            thread.start();
+        }
 
     }
 

@@ -1,14 +1,16 @@
 package com.theultimatejavaseries.advanced.concurrency;
 
 public class DownloadFileTask implements Runnable {
+    private DownloadStatus status;
     Boolean showDownloadedBytes = false;
 
     public DownloadFileTask() {
     }
 
     // custom property to make class backwards compatible
-    public DownloadFileTask(Boolean showDownloadedBytes) {
+    public DownloadFileTask(Boolean showDownloadedBytes, DownloadStatus status) {
         this.showDownloadedBytes = showDownloadedBytes;
+        this.status = status;
     }
 
     @Override
@@ -18,12 +20,13 @@ public class DownloadFileTask implements Runnable {
 
         if (showDownloadedBytes) {
             // for loop added to make it clear the process is running
-            for (int i = 0; i < Integer.MAX_VALUE; i++) {
+            for (int i = 0; i < 10_000; i++) {
 
                 // check for interrupt request
                 if (Thread.currentThread().isInterrupted())
                     return;
                 System.out.println("Downloading byte " + i);
+                status.incrementTotalBytes();
             }
         }
 
