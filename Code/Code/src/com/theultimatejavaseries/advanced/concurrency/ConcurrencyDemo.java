@@ -74,4 +74,25 @@ public class ConcurrencyDemo {
         System.out.println("File is ready to be scanned.");
     }
 
+    public static void interruptingThreads() {
+        // when dealing with long lived tasks we should give our
+        // users the ability to cancel
+        Thread thread = new Thread(new DownloadFileTask(true));
+        thread.start();
+
+        // make the main thread wait for 1 second
+        try {
+            Thread.sleep(1000); // pause thread for 1 second
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Interrupt Requests:
+        // calling the interrupt method doesn't actually force the thread to stop
+        // calling the interrupt method only sends an interrupt request to the thread
+        // it is up to thread to decide if it should stop the current process
+        thread.interrupt();
+
+    }
+
 }
