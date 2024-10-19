@@ -55,4 +55,23 @@ public class ConcurrencyDemo {
         // if the application wasn't multi-threaded, the process would take 50 seconds
         // to complete
     }
+
+    public static void joiningThreads() {
+        Thread thread = new Thread(new DownloadFileTask());
+        thread.start();
+
+        // the join method tells the current thread to wait for the completion of
+        // another thread.
+        // this means that while this thread is waiting, it cannot do other things... it
+        // is blocked
+        // this can be problematic on the main thread, as it can block the executions of
+        // user interactions
+        try {
+            thread.join(); // joins the main thread with the DownloadFileTask thread
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("File is ready to be scanned.");
+    }
+
 }
