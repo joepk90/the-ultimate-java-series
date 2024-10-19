@@ -16,6 +16,20 @@ package com.theultimatejavaseries.advanced.concurrency;
  * - Run
  */
 
+/**
+ * Thread Scheduler
+ * The Java Virtual Machine has a Thread Scheduler.
+ * 
+ * The job of this scheduler is to decide what threads to run for how long.
+ * If there are more tasks than avaible threads, the schdeudler switches between
+ * these tasks
+ * giving each a slice of the CPU time.
+ * 
+ * This happens so fast it gives us the illusion that these tasks are being
+ * executed in parrallel.
+ * But that’s parrallelism at software level.
+ */
+
 public class ConcurrencyDemo {
     public static void processesAndThreads() {
         // returns number of active threads in the current process
@@ -25,16 +39,20 @@ public class ConcurrencyDemo {
         System.out.println(Runtime.getRuntime().availableProcessors());
     }
 
-    public static void startingThreads() {
+    public static void startingAndPausingThreads() {
         // System.out.println(Thread.currentThread().getId()); // returns thread ID (1)
         System.out.println(Thread.currentThread().getName()); // returns thread name (main)
-        
-        // when this program runs, the code to download a file will be executed in a seperate thread
+
+        // when this program runs, the code to download a file will be executed in a
+        // seperate thread
         // start 10 threads using a for loop
-        for (int i = 0; i <10; i++) { 
+        for (int i = 0; i < 10; i++) {
             Thread thread = new Thread(new DownloadFileTask());
             thread.start();
         }
-        
+
+        // because the thread gets paused, each thread takes 5 seconds to complete
+        // if the application wasn't multi-threaded, the process would take 50 seconds
+        // to complete
     }
 }
