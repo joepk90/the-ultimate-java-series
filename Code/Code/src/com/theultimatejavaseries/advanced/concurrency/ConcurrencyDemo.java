@@ -269,4 +269,25 @@ public class ConcurrencyDemo {
         thread1.start();
         thread2.start();
     }
+
+    public static void atomicObjects() {
+        DownloadStatusInterface status = new DownloadStatusWithAtomic();
+
+        List<Thread> threads = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            Thread thread = new Thread(new DownloadFileTaskWithStatusArg(status));
+            thread.start();
+            threads.add(thread);
+        }
+
+        for (Thread thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        System.out.println(status.getTotalBytes());
+    }
 }
