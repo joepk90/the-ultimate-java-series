@@ -10,7 +10,8 @@ public class Main {
         // ConcurrencyDemo.raceConditions();
         // ConcurrencyDemo.confinmentStrategy();
         // ConcurrencyDemo.locksStrategy();
-        ConcurrencyDemo.synchronizedKeywordStrategy();
+        // ConcurrencyDemo.synchronizedKeywordStrategy();
+        ConcurrencyDemo.volatileKeyword();
     }
 }
 

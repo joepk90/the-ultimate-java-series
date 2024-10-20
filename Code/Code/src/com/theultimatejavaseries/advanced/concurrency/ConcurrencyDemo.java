@@ -215,4 +215,22 @@ public class ConcurrencyDemo {
 
         System.out.println(status.getTotalBytes());
     }
+
+    public static void volatileKeyword() {
+        DownloadStatusWithVolatileSync status = new DownloadStatusWithVolatileSync();
+
+        var thread1 = new Thread(new DownloadFileTaskWithVolatile(status));
+
+        // without synchronization logic (the syncronized or volatile keyword) being
+        // used the thread will wait indefinitely as it does not see the
+        // change to the isDone field
+        var thread2 = new Thread(() -> {
+            while (!status.isDone()) {
+            }
+            System.out.println(status.getTotalBytes());
+        });
+
+        thread1.start();
+        thread2.start();
+    }
 }
