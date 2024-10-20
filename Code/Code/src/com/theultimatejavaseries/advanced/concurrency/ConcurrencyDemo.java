@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Thread class:
@@ -346,5 +349,46 @@ public class ConcurrencyDemo {
         }
 
         System.out.println(collection);
+    }
+
+    /**
+     * Concurrent Collections:
+     * https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html
+     * in situations where synchronized collections are causing performance issues,
+     * we can use concurrent collections.
+     * 
+     * concurrent collections use the partition technique, to allow concurrency.
+     * they divide their data into segments, and different threads can concurrently
+     * work with different segements. but only one thread at a time can access a
+     * given
+     * segment.
+     * 
+     * concurrent collections are faster than synchronized collections because they
+     * don't use synchronization.
+     */
+    public static void concurrentCollections() {
+        // Map<Integer, String> map = new HashMap(); // race conditions
+        Map<Integer, String> map = new ConcurrentHashMap<>();
+
+        var thread1 = new Thread(() -> {
+            map.put(1, "a");
+        });
+
+        var thread2 = new Thread(() -> {
+            map.put(2, "b");
+        });
+
+        thread1.start();
+        thread2.start();
+
+        try {
+            thread1.join();
+            thread2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(map);
+
     }
 }

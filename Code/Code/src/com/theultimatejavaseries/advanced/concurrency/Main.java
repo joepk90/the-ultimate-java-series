@@ -14,7 +14,8 @@ public class Main {
         // ConcurrencyDemo.volatileKeyword();
         // ConcurrencyDemo.threadSignalling();
         // ConcurrencyDemo.atomicObjects();
-        ConcurrencyDemo.synchronizedCollections();
+        // ConcurrencyDemo.synchronizedCollections();
+        ConcurrencyDemo.concurrentCollections();
     }
 }
 
