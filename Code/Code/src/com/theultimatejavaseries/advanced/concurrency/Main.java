@@ -6,6 +6,7 @@ public class Main {
         // ConcurrencyDemo.startingThreads();
         // ConcurrencyDemo.pausingThreads();
         // ConcurrencyDemo.joiningThreads();
-        ConcurrencyDemo.interruptingThreads();
+        // ConcurrencyDemo.interruptingThreads();
+        ConcurrencyDemo.raceConditions();
     }
 }

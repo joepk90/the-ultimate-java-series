@@ -102,4 +102,13 @@ public class ConcurrencyDemo {
         // it is up to thread to decide if it should stop the current process
         thread.interrupt();
     }
+
+    public static void raceConditions() {
+        var status = new DownloadStatus();
+
+        for (int i = 0; i < 10; i++) {
+            Thread thread = new Thread(new DownloadFileTaskWithStatusArg(status));
+            thread.start();
+        }
+    }
 }
