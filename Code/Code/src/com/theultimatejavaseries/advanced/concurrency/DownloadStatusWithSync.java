@@ -1,5 +1,10 @@
 package com.theultimatejavaseries.advanced.concurrency;
 
+/*
+ * Synchronization Keysword:
+ * as best practice, don't use the synchronized keyword in new code
+ */
+
 public class DownloadStatusWithSync implements DownloadStatusInterface {
     private int totalBytes;
     private int totalFiles;
@@ -52,6 +57,10 @@ public class DownloadStatusWithSync implements DownloadStatusInterface {
      * only one thread at a time can call a synchronous method of this object - this
      * is bad practice
      */
+
+    // using the synchronized keyword on the method definition,
+    // is exactly the same as the below method, so can cause the same problems
+    // public synchronized void incremementTotalFiles() {}
 
     // public void incremementTotalFiles() {
     // synchronized (this) {
