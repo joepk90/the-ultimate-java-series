@@ -8,7 +8,8 @@ public class Main {
         // ConcurrencyDemo.joiningThreads();
         // ConcurrencyDemo.interruptingThreads();
         // ConcurrencyDemo.raceConditions();
-        ConcurrencyDemo.confinmentStrategy();
+        // ConcurrencyDemo.confinmentStrategy();
+        ConcurrencyDemo.locksStrategy();
     }
 }
 

@@ -172,4 +172,26 @@ public class ConcurrencyDemo {
         // totalBytes returns 100000
         // the race condition seen in the raceConditions method have been solved
     }
+
+    // syncornization
+    public static void locksStrategy() {
+        DownloadStatusInterface status = new DownloadStatusWithLock();
+
+        List<Thread> threads = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            Thread thread = new Thread(new DownloadFileTaskWithStatusArg(status));
+            thread.start();
+            threads.add(thread);
+        }
+
+        for (Thread thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        System.out.println(status.getTotalBytes());
+    }
 }

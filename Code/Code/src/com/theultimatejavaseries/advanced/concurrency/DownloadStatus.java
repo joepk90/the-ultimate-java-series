@@ -7,6 +7,7 @@ public class DownloadStatus implements DownloadStatusInterface {
         return totalBytes;
     }
 
+    // method not thread safe
     public void incrementTotalBytes() {
         totalBytes++;
 
