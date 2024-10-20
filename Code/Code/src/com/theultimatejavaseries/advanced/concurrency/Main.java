@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
         // ConcurrencyDemo.processesAndThreads();
         // ConcurrencyDemo.startingThreads();
-        ConcurrencyDemo.pausingThreads();
+        // ConcurrencyDemo.pausingThreads();
+        ConcurrencyDemo.joiningThreads();
     }
 }
