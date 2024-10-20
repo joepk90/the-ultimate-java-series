@@ -80,7 +80,7 @@ public class ConcurrencyDemo {
     public static void interruptingThreads() {
         // when dealing with long lived tasks we should give our
         // users the ability to cancel
-        Thread thread = new Thread(new DownloadFileTask(true, new DownloadStatus()));
+        Thread thread = new Thread(new DownloadFileTask(true));
         thread.start();
 
         // make the main thread wait for 1 second
@@ -99,11 +99,17 @@ public class ConcurrencyDemo {
     }
 
     public static void raceConditions() {
-        var status = new DownloadStatus();
+        // using a single DownloadStatus object for all threads causes concurrency
+        // issues
+        // var status = new DownloadStatus();
 
         List<Thread> threads = new ArrayList<>();
+        List<DownloadFileTask> tasks = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            Thread thread = new Thread(new DownloadFileTask(true, status));
+            var task = new DownloadFileTask(true);
+            tasks.add(task);
+
+            Thread thread = new Thread(task);
             thread.start();
             threads.add(thread);
         }
@@ -120,7 +126,11 @@ public class ConcurrencyDemo {
             }
         }
 
-        System.out.println(status.getTotalBytes());
+        var totalByes = tasks.stream()
+                .map(t -> t.getStatus().getTotalBytes())
+                .reduce(Integer::sum);
+
+        System.out.println(totalByes);
         // expected output is 100,000
         // however due to race conditions the figure is around 710,000
     }
