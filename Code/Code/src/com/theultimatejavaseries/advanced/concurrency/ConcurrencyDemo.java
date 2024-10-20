@@ -142,4 +142,34 @@ public class ConcurrencyDemo {
          * incrementation process. this is causing values to be lost
          */
     }
+
+    public static void confinmentStrategy() {
+        List<Thread> threads = new ArrayList<>();
+        List<DownloadFileTaskWithStatus> tasks = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            var task = new DownloadFileTaskWithStatus();
+            tasks.add(task);
+
+            Thread thread = new Thread(task);
+            thread.start();
+            threads.add(thread);
+        }
+
+        // Wait for all 10 Theads to finish
+        for (Thread thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        var totalByes = tasks.stream()
+                .map(t -> t.getStatus().getTotalBytes())
+                .reduce(Integer::sum);
+
+        System.out.println(totalByes);
+        // totalBytes returns 100000
+        // the race condition seen in the raceConditions method have been solved
+    }
 }
