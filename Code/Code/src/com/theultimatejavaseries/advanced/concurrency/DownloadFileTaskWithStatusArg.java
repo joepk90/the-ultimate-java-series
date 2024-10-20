@@ -1,9 +1,9 @@
 package com.theultimatejavaseries.advanced.concurrency;
 
 public class DownloadFileTaskWithStatusArg implements Runnable {
-    private DownloadStatus status;
+    private DownloadStatusInterface status;
 
-    public DownloadFileTaskWithStatusArg(DownloadStatus status) {
+    public DownloadFileTaskWithStatusArg(DownloadStatusInterface status) {
         this.status = status;
     }
 
