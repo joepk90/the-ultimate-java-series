@@ -11,7 +11,8 @@ public class Main {
         // ConcurrencyDemo.confinmentStrategy();
         // ConcurrencyDemo.locksStrategy();
         // ConcurrencyDemo.synchronizedKeywordStrategy();
-        ConcurrencyDemo.volatileKeyword();
+        // ConcurrencyDemo.volatileKeyword();
+        ConcurrencyDemo.threadSignalling();
     }
 }
 

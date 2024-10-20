@@ -233,4 +233,40 @@ public class ConcurrencyDemo {
         thread1.start();
         thread2.start();
     }
+
+    // thread signalling with wait/notify
+    public static void threadSignalling() {
+        DownloadStatusWithSignalling status = new DownloadStatusWithSignalling();
+
+        var thread1 = new Thread(new DownloadFileTaskWithSignalling(status));
+        var thread2 = new Thread(() -> {
+
+            // while loop wastes cpu cycles, because it runs continuously
+            while (!status.isDone()) {
+
+                /**
+                 * s
+                 * Wait Method (inherited from the Object class):
+                 * calling the wait method will cause the thread to sleep until another thread
+                 * notifies this thread that the state of the status object has changed
+                 */
+                synchronized (status) {
+                    /**
+                     * Wait Method:
+                     * calling the wait method prevents the while loop from executing 1,000,000
+                     * times. when the nofifyAll function is called, the while loop starts again
+                     */
+                    try {
+                        status.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            System.out.println(status.getTotalBytes());
+        });
+
+        thread1.start();
+        thread2.start();
+    }
 }
