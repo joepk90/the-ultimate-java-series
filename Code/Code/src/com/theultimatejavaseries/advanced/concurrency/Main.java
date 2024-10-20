@@ -9,7 +9,8 @@ public class Main {
         // ConcurrencyDemo.interruptingThreads();
         // ConcurrencyDemo.raceConditions();
         // ConcurrencyDemo.confinmentStrategy();
-        ConcurrencyDemo.locksStrategy();
+        // ConcurrencyDemo.locksStrategy();
+        ConcurrencyDemo.synchronizedKeywordStrategy();
     }
 }
 
