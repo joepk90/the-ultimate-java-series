@@ -1,6 +1,9 @@
 package com.theultimatejavaseries.advanced.concurrency;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -310,5 +313,38 @@ public class ConcurrencyDemo {
         }
 
         System.out.println(status.getTotalBytes());
+    }
+
+    /**
+     * Synchronised Collectins:
+     * synchronized collections acheive thread safety by using locks.
+     * when a thead gets access to a synchronous collection, the entire collection
+     * gets locked and other threads have to wait. this works well in most cases,
+     * but it can have an impact on performance and scalability as number of threads
+     * and concurrent operations increase.
+     */
+    public static void synchronizedCollections() {
+        // Collection<Integer> collection = new ArrayList<>(); // race condition
+        Collection<Integer> collection = Collections.synchronizedCollection(new ArrayList<>());
+
+        var thread1 = new Thread(() -> {
+            collection.addAll(Arrays.asList(1, 2, 3));
+        });
+
+        var thread2 = new Thread(() -> {
+            collection.addAll(Arrays.asList(4, 5, 6));
+        });
+
+        thread1.start();
+        thread2.start();
+
+        try {
+            thread1.join();
+            thread2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(collection);
     }
 }

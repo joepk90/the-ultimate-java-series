@@ -13,7 +13,8 @@ public class Main {
         // ConcurrencyDemo.synchronizedKeywordStrategy();
         // ConcurrencyDemo.volatileKeyword();
         // ConcurrencyDemo.threadSignalling();
-        ConcurrencyDemo.atomicObjects();
+        // ConcurrencyDemo.atomicObjects();
+        ConcurrencyDemo.synchronizedCollections();
     }
 }
 
