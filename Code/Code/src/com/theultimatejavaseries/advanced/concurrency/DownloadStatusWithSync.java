@@ -3,6 +3,8 @@ package com.theultimatejavaseries.advanced.concurrency;
 public class DownloadStatusWithSync implements DownloadStatusInterface {
     private int totalBytes;
     private int totalFiles;
+    private Object totalBytesLock = new Object();
+    private Object totalFilesLock = new Object();
 
     public int getTotalBytes() {
         return totalBytes;
@@ -18,7 +20,7 @@ public class DownloadStatusWithSync implements DownloadStatusInterface {
          */
 
         // monitor object passed to the synchronized function
-        synchronized (this) {
+        synchronized (totalBytesLock) {
             totalBytes++;
         }
 
@@ -26,6 +28,16 @@ public class DownloadStatusWithSync implements DownloadStatusInterface {
         // synchronized (this) {
         // totalBytes++;
         // }
+    }
+
+    public void incremementTotalFiles() {
+        synchronized (totalFilesLock) {
+            totalFiles++;
+        }
+    }
+
+    public int getTotalFiles() {
+        return totalFiles;
     }
 
     /**
@@ -41,14 +53,14 @@ public class DownloadStatusWithSync implements DownloadStatusInterface {
      * is bad practice
      */
 
-    public void incremementTotalFiles() {
-        synchronized (this) {
-            totalFiles++;
-        }
-    }
+    // public void incremementTotalFiles() {
+    // synchronized (this) {
+    // totalFiles++;
+    // }
+    // }
 
-    public int getTotalFiles() {
-        return totalFiles;
-    }
+    // public int getTotalFiles() {
+    // return totalFiles;
+    // }
 
 }
