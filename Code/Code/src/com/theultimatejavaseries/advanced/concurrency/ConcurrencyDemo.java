@@ -1,5 +1,8 @@
 package com.theultimatejavaseries.advanced.concurrency;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Thread class:
  * The Thread class constructor is overloaded.
@@ -106,9 +109,37 @@ public class ConcurrencyDemo {
     public static void raceConditions() {
         var status = new DownloadStatus();
 
+        List<Thread> threads = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             Thread thread = new Thread(new DownloadFileTaskWithStatusArg(status));
             thread.start();
+            threads.add(thread);
         }
+
+        // Waiting for all 10 Theads to finish:
+        // we can't use thread.join because it will make the main thread
+        // wait for each download to finish
+        // thread.join(); // blocking method
+        for (Thread thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        System.out.println(status.getTotalBytes());
+        /**
+         * Race Condition Issue:
+         * expected output is 100,000, however due to race conditions the figure is
+         * around 710,000.
+         * 
+         * Race conditions issues are caused by the (++) incrementor logic]
+         * in the DownloadStatus class.
+         * 
+         * This operation causes the inrementor logic to sometimes get the wrong value
+         * in which incremement, because another thread has not finished it's own
+         * incrementation process. this is causing values to be lost
+         */
     }
 }
