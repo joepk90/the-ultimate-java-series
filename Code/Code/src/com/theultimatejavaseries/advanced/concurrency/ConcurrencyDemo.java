@@ -4,10 +4,25 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
+import com.theultimatejavaseries.advanced.concurrency.DownloadFileTask.DownloadFileTask;
+import com.theultimatejavaseries.advanced.concurrency.DownloadFileTask.DownloadFileTaskWithInterrupt;
+import com.theultimatejavaseries.advanced.concurrency.DownloadFileTask.DownloadFileTaskWithSignalling;
+import com.theultimatejavaseries.advanced.concurrency.DownloadFileTask.DownloadFileTaskWithSleep;
+import com.theultimatejavaseries.advanced.concurrency.DownloadFileTask.DownloadFileTaskWithStatus;
+import com.theultimatejavaseries.advanced.concurrency.DownloadFileTask.DownloadFileTaskWithStatusArg;
+import com.theultimatejavaseries.advanced.concurrency.DownloadFileTask.DownloadFileTaskWithVolatile;
+import com.theultimatejavaseries.advanced.concurrency.DownloadStatus.DownloadStatus;
+import com.theultimatejavaseries.advanced.concurrency.DownloadStatus.DownloadStatusInterface;
+import com.theultimatejavaseries.advanced.concurrency.DownloadStatus.DownloadStatusWithAdder;
+import com.theultimatejavaseries.advanced.concurrency.DownloadStatus.DownloadStatusWithAtomic;
+import com.theultimatejavaseries.advanced.concurrency.DownloadStatus.DownloadStatusWithLock;
+import com.theultimatejavaseries.advanced.concurrency.DownloadStatus.DownloadStatusWithSignalling;
+import com.theultimatejavaseries.advanced.concurrency.DownloadStatus.DownloadStatusWithSync;
+import com.theultimatejavaseries.advanced.concurrency.DownloadStatus.DownloadStatusWithVolatileSync;
 
 /**
  * Thread class:

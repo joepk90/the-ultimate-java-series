@@ -1,4 +1,4 @@
-package com.theultimatejavaseries.advanced.concurrency;
+package com.theultimatejavaseries.advanced.concurrency.DownloadStatus;
 
 public class DownloadStatusWithSignalling {
     private volatile Boolean isDone = false; // volatile means unstable

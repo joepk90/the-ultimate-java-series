@@ -1,4 +1,4 @@
-package com.theultimatejavaseries.advanced.concurrency;
+package com.theultimatejavaseries.advanced.concurrency.DownloadStatus;
 
 public class DownloadStatus implements DownloadStatusInterface {
     private int totalBytes;

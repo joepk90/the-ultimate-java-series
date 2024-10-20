@@ -1,9 +1,11 @@
-package com.theultimatejavaseries.advanced.concurrency;
+package com.theultimatejavaseries.advanced.concurrency.DownloadFileTask;
 
-public class DownloadFileTaskWithSignalling implements Runnable {
-    private DownloadStatusWithSignalling status;
+import com.theultimatejavaseries.advanced.concurrency.DownloadStatus.DownloadStatusWithVolatileSync;
 
-    public DownloadFileTaskWithSignalling(DownloadStatusWithSignalling status) {
+public class DownloadFileTaskWithVolatile implements Runnable {
+    private DownloadStatusWithVolatileSync status;
+
+    public DownloadFileTaskWithVolatile(DownloadStatusWithVolatileSync status) {
         this.status = status;
     }
 
@@ -18,11 +20,6 @@ public class DownloadFileTaskWithSignalling implements Runnable {
         }
 
         status.done();
-
-        synchronized (status) {
-            // status.notify();
-            status.notifyAll(); // useful for notifying multiple threads
-        }
 
         System.out.println("Download complete: " + Thread.currentThread().getName());
     }

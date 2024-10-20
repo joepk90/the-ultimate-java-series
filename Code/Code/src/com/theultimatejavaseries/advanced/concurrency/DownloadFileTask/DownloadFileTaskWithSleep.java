@@ -1,4 +1,4 @@
-package com.theultimatejavaseries.advanced.concurrency;
+package com.theultimatejavaseries.advanced.concurrency.DownloadFileTask;
 
 public class DownloadFileTaskWithSleep implements Runnable {
     @Override

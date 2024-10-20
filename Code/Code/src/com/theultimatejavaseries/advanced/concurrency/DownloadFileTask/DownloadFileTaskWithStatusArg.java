@@ -1,4 +1,6 @@
-package com.theultimatejavaseries.advanced.concurrency;
+package com.theultimatejavaseries.advanced.concurrency.DownloadFileTask;
+
+import com.theultimatejavaseries.advanced.concurrency.DownloadStatus.DownloadStatusInterface;
 
 public class DownloadFileTaskWithStatusArg implements Runnable {
     private DownloadStatusInterface status;
