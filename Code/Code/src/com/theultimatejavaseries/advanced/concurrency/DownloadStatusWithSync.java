@@ -2,6 +2,7 @@ package com.theultimatejavaseries.advanced.concurrency;
 
 public class DownloadStatusWithSync implements DownloadStatusInterface {
     private int totalBytes;
+    private int totalFiles;
 
     public int getTotalBytes() {
         return totalBytes;
@@ -26,4 +27,28 @@ public class DownloadStatusWithSync implements DownloadStatusInterface {
         // totalBytes++;
         // }
     }
+
+    /**
+     * Synchronized Keyword (Bad Practice):
+     * two mathods that use the same monitor object cannot be called at the same
+     * time.
+     * 
+     * if one thread is calling the incremementTotalFiles method, another thread
+     * cannot call the incrementTotalBytes method, because both methods are using
+     * the same monitor object (this)
+     * 
+     * only one thread at a time can call a synchronous method of this object - this
+     * is bad practice
+     */
+
+    public void incremementTotalFiles() {
+        synchronized (this) {
+            totalFiles++;
+        }
+    }
+
+    public int getTotalFiles() {
+        return totalFiles;
+    }
+
 }
