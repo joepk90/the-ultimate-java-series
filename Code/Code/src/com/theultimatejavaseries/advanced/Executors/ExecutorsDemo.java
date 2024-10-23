@@ -145,7 +145,7 @@ public class ExecutorsDemo {
         var service = new MailService();
 
         // synchronous (blocking) operation - (3 seconds wait)
-        service.send();
+        service.sendAsync();
 
         // service.send much complete before seeing this print operation is executed
         System.out.println("Hello world");
