@@ -82,4 +82,30 @@ public class ExecutorsDemo {
             // executor.shutdownNow();
         }
     }
+
+    /**
+     * The ExecutorService submit method which accepts either of the following
+     * interfaces:
+     * 
+     * - Callable:
+     * https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html
+     * 
+     * - Runnable:
+     * https://docs.oracle.com/javase/8/docs/api/java/lang/Runnable.html
+     * 
+     */
+
+    public static void callablesAndFutures() {
+        var executor = Executors.newFixedThreadPool(2);
+        try {
+            // because lambda expression returns a value, it represents a Callable object:
+            // https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Callable.html
+            executor.submit(() -> {
+                System.out.println(Thread.currentThread().getName());
+                return 1;
+            });
+        } finally {
+            executor.shutdown();
+        }
+    }
 }
