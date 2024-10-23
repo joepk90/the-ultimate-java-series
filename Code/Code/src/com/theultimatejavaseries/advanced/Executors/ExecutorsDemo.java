@@ -39,5 +39,28 @@ public class ExecutorsDemo {
          * executor (to this thread pool), and this pool will assign out tasks to worker
          * threads.
          */
+
+        // submitting multiple tasks to the executors thread pool
+        // internally this executor maintains a queue.
+        // every task we submit goes in this queue and waits for an available thread
+        for (int i = 0; i < 10; i++) {
+            executor.submit(() -> {
+                System.out.println(Thread.currentThread().getName());
+                /*
+                 * returns:
+                 * pool-1-thread-2
+                 * pool-1-thread-2
+                 * pool-1-thread-2
+                 * pool-1-thread-2
+                 * pool-1-thread-2
+                 * pool-1-thread-2
+                 * pool-1-thread-2
+                 * pool-1-thread-2
+                 * pool-1-thread-2
+                 * pool-1-thread-2
+                 * pool-1-thread-1
+                 */
+            });
+        }
     }
 }
