@@ -130,7 +130,7 @@ public class ExecutorsDemo {
             // get will block the current thread until the result of this operation is ready
             // eventually it will return a value, or fail
             try {
-                var result = future.get();
+                var result = future.get(); // synchronous code (blocking)
                 System.out.println(result); // returns 1
             } catch (InterruptedException | ExecutionException e) {
                 e.printStackTrace();
