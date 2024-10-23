@@ -62,5 +62,21 @@ public class ExecutorsDemo {
                  */
             });
         }
+
+        /**
+         * when an executor is started and task submitted, it never stops.
+         * it waits in the memory waiting for new tasks...
+         * this is because executor thinks there might be more tasks coming in the
+         * future.
+         * 
+         * to stop an executor, we have to explcity shit down an excutor to terminate
+         * our program.
+         */
+
+        // shutdown an executor (waiting for the current task to finish)
+        executor.shutdown();
+
+        // shutdown an executor (without waiting for the current task to finish)
+        // executor.shutdownNow();
     }
 }
