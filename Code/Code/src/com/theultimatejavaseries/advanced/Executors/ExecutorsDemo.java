@@ -29,9 +29,9 @@ public class ExecutorsDemo {
         System.out.println(executor.getClass().getName());
 
         // run a task on a seperate thread (to this executors thread pool):
-        executor.submit(() -> {
-            System.out.println(Thread.currentThread().getName()); // pool-1-thread-1
-        });
+        // executor.submit(() -> {
+        // System.out.println(Thread.currentThread().getName()); // pool-1-thread-1
+        // });
 
         /**
          * if you have 1000 tasks, we don't have to worry about creating too many
@@ -40,43 +40,46 @@ public class ExecutorsDemo {
          * threads.
          */
 
-        // submitting multiple tasks to the executors thread pool
-        // internally this executor maintains a queue.
-        // every task we submit goes in this queue and waits for an available thread
-        for (int i = 0; i < 10; i++) {
-            executor.submit(() -> {
-                System.out.println(Thread.currentThread().getName());
-                /*
-                 * returns:
-                 * pool-1-thread-2
-                 * pool-1-thread-2
-                 * pool-1-thread-2
-                 * pool-1-thread-2
-                 * pool-1-thread-2
-                 * pool-1-thread-2
-                 * pool-1-thread-2
-                 * pool-1-thread-2
-                 * pool-1-thread-2
-                 * pool-1-thread-2
-                 * pool-1-thread-1
-                 */
-            });
+        // use try / finally statement to shutdown the executor even if a task fails
+        try {
+            // submitting multiple tasks to the executors thread pool
+            // internally this executor maintains a queue.
+            // every task we submit goes in this queue and waits for an available thread
+            for (int i = 0; i < 10; i++) {
+                executor.submit(() -> {
+                    System.out.println(Thread.currentThread().getName());
+                    /*
+                     * returns:
+                     * pool-1-thread-2
+                     * pool-1-thread-2
+                     * pool-1-thread-2
+                     * pool-1-thread-2
+                     * pool-1-thread-2
+                     * pool-1-thread-2
+                     * pool-1-thread-2
+                     * pool-1-thread-2
+                     * pool-1-thread-2
+                     * pool-1-thread-2
+                     * pool-1-thread-1
+                     */
+                });
+            }
+        } finally {
+            /**
+             * when an executor is started and task submitted, it never stops.
+             * it waits in the memory waiting for new tasks...
+             * this is because executor thinks there might be more tasks coming in the
+             * future.
+             * 
+             * to stop an executor, we have to explcity shit down an excutor to terminate
+             * our program.
+             */
+
+            // shutdown an executor (waiting for the current task to finish)
+            executor.shutdown();
+
+            // shutdown an executor (without waiting for the current task to finish)
+            // executor.shutdownNow();
         }
-
-        /**
-         * when an executor is started and task submitted, it never stops.
-         * it waits in the memory waiting for new tasks...
-         * this is because executor thinks there might be more tasks coming in the
-         * future.
-         * 
-         * to stop an executor, we have to explcity shit down an excutor to terminate
-         * our program.
-         */
-
-        // shutdown an executor (waiting for the current task to finish)
-        executor.shutdown();
-
-        // shutdown an executor (without waiting for the current task to finish)
-        // executor.shutdownNow();
     }
 }
