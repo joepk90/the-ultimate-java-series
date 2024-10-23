@@ -1,8 +1,9 @@
 package com.theultimatejavaseries.advanced.Executors;
 
 import java.util.concurrent.ForkJoinPool;
-
+import java.util.function.Supplier;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 
 public class CompletableFuturesDemo {
@@ -37,5 +38,22 @@ public class CompletableFuturesDemo {
         Runnable commonPooltask = () -> System.out.println("a");
         CompletableFuture.runAsync(commonPooltask, executor);
 
+        // using CompletableFuture.runAsync
+        // we can execute a task in an async fashion
+        // we don't have to create an executor, submit a task, and then shut it down
+        Runnable taskRunnable = () -> System.out.println("a");
+        CompletableFuture.runAsync(taskRunnable);
+        // returns CompletableFuture<Void>
+
+        Supplier<Integer> taskSupplier = () -> 1;
+        var futureSupply = CompletableFuture.supplyAsync(taskSupplier);
+        // returns CompletableFuture<Integer>
+
+        try {
+            var result = futureSupply.get(); // blocking method
+            System.out.println(result);
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 }
