@@ -149,6 +149,12 @@ public class ExecutorsDemo {
 
         // service.send much complete before seeing this print operation is executed
         System.out.println("Hello world");
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }
