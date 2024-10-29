@@ -5,6 +5,7 @@ public class Main {
         // ExecutorsDemo.creatingThreadPools();
         // ExecutorsDemo.callablesAndFutures();
         // CompletableFuturesDemo.creatingCompletableFutures();
-        ExecutorsDemo.implementingAsynchronousAPI();
+        // ExecutorsDemo.implementingAsynchronousAPI();
+        CompletableFuturesDemo.runningCodeOnCompeletion();
     }
 }

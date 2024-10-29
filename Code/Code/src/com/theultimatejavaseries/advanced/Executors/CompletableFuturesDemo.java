@@ -3,6 +3,7 @@ package com.theultimatejavaseries.advanced.Executors;
 import java.util.concurrent.ForkJoinPool;
 import java.util.function.Supplier;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionStage;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 
@@ -53,6 +54,52 @@ public class CompletableFuturesDemo {
             var result = futureSupply.get(); // blocking method
             System.out.println(result);
         } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void runningCodeOnCompeletion() {
+
+        // CompletableFuture
+        // CompletionStage x;
+        // x.toCompletableFuture().thenRun(null);
+
+        var future = CompletableFuture.supplyAsync(() -> 1);
+
+        // executes on Main thread
+        future.thenRun(() -> {
+            System.out.println(Thread.currentThread().getName());
+            System.out.println("done");
+        });
+
+        // execute this task asynchronously
+        // this task will be passed to the underlying thread pool and executed async,
+        // executing on alternative Thread (i.e. Thread-1)
+        future.thenRunAsync(() -> {
+            System.out.println(Thread.currentThread().getName());
+            System.out.println("done");
+        });
+
+        // takes Consumer interface and returns result
+        // executing on the Main thread
+        future.thenAccept(result -> {
+            System.out.println(Thread.currentThread().getName());
+            System.out.println(result);
+        });
+
+        // takes Consumer interface and returns result
+        // executes on alternative Thread (i.e. Thread-1)
+        future.thenAcceptAsync(result -> {
+            System.out.println(Thread.currentThread().getName());
+            System.out.println(result);
+        });
+
+        // sleep request executed on Main thread to ensure other threads finish
+        // operations first without sleep execution, printing operation may not
+        // show because the Main thread has already stopped.
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
