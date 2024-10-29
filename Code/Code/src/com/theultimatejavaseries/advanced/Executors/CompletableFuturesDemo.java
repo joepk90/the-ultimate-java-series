@@ -141,6 +141,10 @@ public class CompletableFuturesDemo {
         }
     }
 
+    public static int toFahrenheit(int celcius) {
+        return (int) (celcius * 1.8) + 32;
+    }
+
     public static void transformingCompletableFutures() {
 
         var future = CompletableFuture.supplyAsync(() -> 20);
@@ -149,12 +153,17 @@ public class CompletableFuturesDemo {
             // execute this piece of code, after this task or this future is complete
             // thenApply returns a new CompletableFuture
             var result = future
-                    .thenApply(celcius -> (celcius * 1.8) + 32)
+                    .thenApply(CompletableFuturesDemo::toFahrenheit)
                     .get(); // returns the converted value
             System.out.println(result);
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
 
+        // complex async operations build in a declarative way
+        // (simplified version of the above code)
+        future
+                .thenApply(CompletableFuturesDemo::toFahrenheit)
+                .thenAccept(f -> System.out.println(f));
     }
 }
