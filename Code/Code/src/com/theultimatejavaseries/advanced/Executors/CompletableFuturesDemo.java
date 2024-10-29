@@ -239,6 +239,17 @@ public class CompletableFuturesDemo {
         // type
         var all = CompletableFuture.allOf(first, second, third);
 
-        all.thenRun(() -> System.out.println("all tasks completed successfully"));
+        all.thenRun(() -> {
+            // get result of these CompletableFuture objects
+            // none-blocking code, as it will excute after all the tasks have finished
+            try {
+                var firstResult = first.get();
+                System.out.println(firstResult);
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+            }
+            System.out.println("all tasks completed successfully");
+        });
+
     }
 }
