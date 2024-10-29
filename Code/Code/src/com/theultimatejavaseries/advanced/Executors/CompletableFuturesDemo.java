@@ -214,7 +214,12 @@ public class CompletableFuturesDemo {
          * calculate the result
          */
 
-        var first = CompletableFuture.supplyAsync(() -> 20);
+        var first = CompletableFuture
+                .supplyAsync(() -> "20USD")
+                .thenApply(str -> {
+                    var price = str.replace("USD", "");
+                    return Integer.parseInt(price);
+                });
         var second = CompletableFuture.supplyAsync(() -> 0.9);
 
         // both the first and second task are run concurrently (async) and then,
@@ -222,6 +227,5 @@ public class CompletableFuturesDemo {
         first
                 .thenCombine(second, (price, exchangeRate) -> price * exchangeRate) // final operation
                 .thenAccept(result -> System.out.println(result));
-
     }
 }
