@@ -228,4 +228,17 @@ public class CompletableFuturesDemo {
                 .thenCombine(second, (price, exchangeRate) -> price * exchangeRate) // final operation
                 .thenAccept(result -> System.out.println(result));
     }
+
+    public static void waitingForTooManyTasksToComplete() {
+        var first = CompletableFuture.supplyAsync(() -> 1);
+        var second = CompletableFuture.supplyAsync(() -> 1);
+        var third = CompletableFuture.supplyAsync(() -> 1);
+
+        // returns CompletableFuture<Void>
+        // cannot return a type because each CompletableFuture may return a different
+        // type
+        var all = CompletableFuture.allOf(first, second, third);
+
+        all.thenRun(() -> System.out.println("all tasks completed successfully"));
+    }
 }

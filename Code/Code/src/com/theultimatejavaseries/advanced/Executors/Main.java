@@ -10,6 +10,7 @@ public class Main {
         // CompletableFuturesDemo.handlingExceptions();
         // CompletableFuturesDemo.transformingCompletableFutures();
         // CompletableFuturesDemo.composingCompletableFutures();
-        CompletableFuturesDemo.combiningCompletableFutures();
+        // CompletableFuturesDemo.combiningCompletableFutures();
+        CompletableFuturesDemo.waitingForTooManyTasksToComplete();
     }
 }
