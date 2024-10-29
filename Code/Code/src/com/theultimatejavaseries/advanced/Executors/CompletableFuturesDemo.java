@@ -140,4 +140,21 @@ public class CompletableFuturesDemo {
             e.printStackTrace();
         }
     }
+
+    public static void transformingCompletableFutures() {
+
+        var future = CompletableFuture.supplyAsync(() -> 20);
+
+        try {
+            // execute this piece of code, after this task or this future is complete
+            // thenApply returns a new CompletableFuture
+            var result = future
+                    .thenApply(celcius -> (celcius * 1.8) + 32)
+                    .get(); // returns the converted value
+            System.out.println(result);
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

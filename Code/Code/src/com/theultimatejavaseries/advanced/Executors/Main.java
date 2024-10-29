@@ -7,6 +7,7 @@ public class Main {
         // CompletableFuturesDemo.creatingCompletableFutures();
         // ExecutorsDemo.implementingAsynchronousAPI();
         // CompletableFuturesDemo.runningCodeOnCompeletion();
-        CompletableFuturesDemo.handlingExceptions();
+        // CompletableFuturesDemo.handlingExceptions();
+        CompletableFuturesDemo.transformingCompletableFutures();
     }
 }
