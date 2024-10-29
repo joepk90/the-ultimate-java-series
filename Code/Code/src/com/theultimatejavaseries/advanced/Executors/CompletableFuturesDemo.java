@@ -166,4 +166,22 @@ public class CompletableFuturesDemo {
                 .thenApply(CompletableFuturesDemo::toFahrenheit)
                 .thenAccept(f -> System.out.println(f));
     }
+
+    public static void composingCompletableFutures() {
+
+        /**
+         * Example Operation in Mock Project:
+         * - task 1: get uses email from database using users id
+         * -- id -> email
+         * 
+         * - task 2: get users playlist from API using email
+         * -- email -> playlist
+         */
+
+        // task 1: supplyAsync lamda function retreives users email from database
+        CompletableFuture.supplyAsync(() -> "email")
+                // task 2: supplyAsync gets users playlist from database
+                .thenCompose(email -> CompletableFuture.supplyAsync(() -> "playlist"))
+                .thenAccept(playlist -> System.out.println(playlist));
+    }
 }
