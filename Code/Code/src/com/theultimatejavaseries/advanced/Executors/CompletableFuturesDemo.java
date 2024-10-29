@@ -167,6 +167,16 @@ public class CompletableFuturesDemo {
                 .thenAccept(f -> System.out.println(f));
     }
 
+    // long running operations (async task)
+    public static CompletableFuture<String> getUserEmailAsync() {
+        return CompletableFuture.supplyAsync(() -> "email");
+    }
+
+    // long running operations (async task)
+    public static CompletableFuture<String> getUserPlaylistAsync(String email) {
+        return CompletableFuture.supplyAsync(() -> "playlist");
+    }
+
     public static void composingCompletableFutures() {
 
         /**
@@ -179,9 +189,9 @@ public class CompletableFuturesDemo {
          */
 
         // task 1: supplyAsync lamda function retreives users email from database
-        CompletableFuture.supplyAsync(() -> "email")
+        getUserEmailAsync()
                 // task 2: supplyAsync gets users playlist from database
-                .thenCompose(email -> CompletableFuture.supplyAsync(() -> "playlist"))
+                .thenCompose(CompletableFuturesDemo::getUserPlaylistAsync)
                 .thenAccept(playlist -> System.out.println(playlist));
     }
 }
