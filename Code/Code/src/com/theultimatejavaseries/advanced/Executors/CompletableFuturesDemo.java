@@ -194,4 +194,34 @@ public class CompletableFuturesDemo {
                 .thenCompose(CompletableFuturesDemo::getUserPlaylistAsync)
                 .thenAccept(playlist -> System.out.println(playlist));
     }
+
+    /**
+     * Opinion:
+     * one of the most powerful features of CompletableFutures, is the abiltiy to
+     * start two tasks asynchronously, and then combine the results
+     */
+    public static void combiningCompletableFutures() {
+        /**
+         * Mock Example:
+         * - task 1 : we call a remote service to get price of product, which returns
+         * the price in
+         * USD of 20 (20 USD)
+         * - task 2: at the same we call another service to get the exchange rate
+         * between USD and EUR, which returns 0.9
+         * 
+         * we dont want to call this service on completion of the first task, we want to
+         * start these tasks concurrently and wait for both to complete in order to
+         * calculate the result
+         */
+
+        var first = CompletableFuture.supplyAsync(() -> 20);
+        var second = CompletableFuture.supplyAsync(() -> 0.9);
+
+        // both the first and second task are run concurrently (async) and then,
+        // once both tasks are complete a new operation starts
+        first
+                .thenCombine(second, (price, exchangeRate) -> price * exchangeRate) // final operation
+                .thenAccept(result -> System.out.println(result));
+
+    }
 }

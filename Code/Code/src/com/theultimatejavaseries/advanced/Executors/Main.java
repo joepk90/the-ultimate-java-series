@@ -9,6 +9,7 @@ public class Main {
         // CompletableFuturesDemo.runningCodeOnCompeletion();
         // CompletableFuturesDemo.handlingExceptions();
         // CompletableFuturesDemo.transformingCompletableFutures();
-        CompletableFuturesDemo.composingCompletableFutures();
+        // CompletableFuturesDemo.composingCompletableFutures();
+        CompletableFuturesDemo.combiningCompletableFutures();
     }
 }
