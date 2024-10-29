@@ -103,4 +103,30 @@ public class CompletableFuturesDemo {
             e.printStackTrace();
         }
     }
+
+    public static void handlingExceptions() {
+
+        // exception is not displayed, because it it thrown o different thread
+        var future = CompletableFuture.supplyAsync(() -> {
+            System.out.println("Getting the current weather");
+            throw new IllegalStateException();
+        });
+
+        try {
+            // CompletableFuture: get exception
+            // https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html
+            // returns ExecutionException, cause by an IllegalStateException
+            future.get();
+
+            // ExecutionException occurs if thread is sleeping, but it interrupted
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+
+            // ExecutionException caused if something goes wrong during execution
+        } catch (ExecutionException e) {
+            e.getCause(); // returns IllegalStateException
+            System.out.println(e.getCause());
+            e.printStackTrace();
+        }
+    }
 }
