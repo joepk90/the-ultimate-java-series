@@ -116,7 +116,18 @@ public class CompletableFuturesDemo {
             // CompletableFuture: get exception
             // https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html
             // returns ExecutionException, cause by an IllegalStateException
-            future.get();
+            // future.get();
+
+            /**
+             * preventing an exception using the exceptionally method
+             * the exceptionally method takes the Throwable object:
+             * https://docs.oracle.com/javase/8/docs/api/java/lang/Throwable.html
+             */
+
+            // returns a new Completable Future, with default value of 1 (if exception is
+            // thrown)
+            var response = future.exceptionally(ex -> 1).get();
+            System.out.println(response);
 
             // ExecutionException occurs if thread is sleeping, but it interrupted
         } catch (InterruptedException e) {
