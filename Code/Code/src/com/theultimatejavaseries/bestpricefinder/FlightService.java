@@ -5,17 +5,15 @@ import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.stream.Stream;
 
-import com.theultimatejavaseries.advanced.Executors.LongTask;
-
 public class FlightService {
 
     public CompletableFuture<Quote> getQuote(String site) {
         return CompletableFuture.supplyAsync(() -> {
             System.out.println("Getting a quote from " + site);
 
-            LongTask.simulate();
-
             var random = new Random();
+            LongTask.simulate(1_000 + random.nextInt(2000));
+
             var price = 100 + random.nextInt(10);
 
             return new Quote(site, price);
