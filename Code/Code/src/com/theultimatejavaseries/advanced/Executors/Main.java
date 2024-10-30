@@ -12,6 +12,7 @@ public class Main {
         // CompletableFuturesDemo.composingCompletableFutures();
         // CompletableFuturesDemo.combiningCompletableFutures();
         // CompletableFuturesDemo.waitingForTooManyTasksToComplete();
-        CompletableFuturesDemo.waitingForTheFirstTask();
+        // CompletableFuturesDemo.waitingForTheFirstTask();
+        CompletableFuturesDemo.handlingTimouts();
     }
 }

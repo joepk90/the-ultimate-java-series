@@ -1,6 +1,7 @@
 package com.theultimatejavaseries.advanced.Executors;
 
 import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
@@ -265,5 +266,25 @@ public class CompletableFuturesDemo {
         // executes immediatly
         CompletableFuture.anyOf(first, second)
                 .thenAccept(temp -> System.out.println(temp));
+    }
+
+    public static void handlingTimouts() {
+        var future = CompletableFuture.supplyAsync(() -> {
+            LongTask.simulate(); // 3 seconds
+            return 1;
+        });
+
+        try {
+            // exception thrown because timeout length is less then the simulated LongTask
+            // however this is not an ideal experience for the end user
+            // var result = future.orTimeout(1, TimeUnit.SECONDS).get();
+
+            // better approach is to recover with a default value
+            var result = future.completeOnTimeout(1, 1, TimeUnit.SECONDS)
+                    .get();
+            System.out.println(result);
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 }
