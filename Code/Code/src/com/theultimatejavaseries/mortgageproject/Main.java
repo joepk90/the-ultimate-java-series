@@ -1,5 +1,10 @@
 package com.theultimatejavaseries.mortgageproject;
 
+/**
+ * Mortgate Calculator Project
+ * - project from Part 1 - Section 2 (Types)
+ */
+
 public class Main {
     public static void main(String[] args) {
         Main.runMortgageCalculator();

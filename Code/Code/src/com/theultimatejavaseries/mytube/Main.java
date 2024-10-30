@@ -1,5 +1,10 @@
 package com.theultimatejavaseries.mytube;
 
+/**
+ * MyTube Video Platform Project
+ * - project from Part 2 - Section 5 (Interfaces)
+ */
+
 public class Main {
 
     public static void main(String[] args) {
