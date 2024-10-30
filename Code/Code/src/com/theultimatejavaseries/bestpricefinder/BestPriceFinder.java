@@ -1,8 +1,10 @@
 package com.theultimatejavaseries.bestpricefinder;
 
 import java.util.concurrent.CompletableFuture;
-// import java.util.concurrent.Executors;
 
+/**
+ * My logic for completing the Best Price Finder Project
+ */
 public class BestPriceFinder {
     public static Quote getQuote(String site, Integer price) {
         System.out.println("Getting quote from " + site);
