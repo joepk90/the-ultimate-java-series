@@ -1,4 +1,4 @@
-package com.theultimatejavaseries.mortgageproject;
+package com.theultimatejavaseries.projects.mortgageproject;
 
 import java.util.Scanner;
 

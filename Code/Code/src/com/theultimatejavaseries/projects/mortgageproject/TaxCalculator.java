@@ -1,4 +1,4 @@
-package com.theultimatejavaseries.mortgageproject;
+package com.theultimatejavaseries.projects.mortgageproject;
 
 public interface TaxCalculator {
     // AVOID USING: new Java feature (fields in interfaces)

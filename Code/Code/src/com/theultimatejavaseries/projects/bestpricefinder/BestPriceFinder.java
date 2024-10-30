@@ -1,4 +1,4 @@
-package com.theultimatejavaseries.bestpricefinder;
+package com.theultimatejavaseries.projects.bestpricefinder;
 
 import java.util.concurrent.CompletableFuture;
 

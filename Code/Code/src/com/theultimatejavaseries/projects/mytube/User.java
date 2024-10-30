@@ -1,4 +1,4 @@
-package com.theultimatejavaseries.mytube;
+package com.theultimatejavaseries.projects.mytube;
 
 public class User {
     private String email;

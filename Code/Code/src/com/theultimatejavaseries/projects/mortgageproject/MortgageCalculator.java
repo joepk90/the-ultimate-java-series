@@ -1,4 +1,4 @@
-package com.theultimatejavaseries.mortgageproject;
+package com.theultimatejavaseries.projects.mortgageproject;
 
 public class MortgageCalculator {
     private final static byte PERCENT = 100;

@@ -1,4 +1,4 @@
-package com.theultimatejavaseries.mortgageproject;
+package com.theultimatejavaseries.projects.mortgageproject;
 
 public class TaxCalculator2018 extends AbstractClassCalculator {
     private double taxableIncome;

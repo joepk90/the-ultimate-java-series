@@ -1,4 +1,4 @@
-package com.theultimatejavaseries.bestpricefinder;
+package com.theultimatejavaseries.projects.bestpricefinder;
 
 public class LongTask {
     public static void simulate(int delay) {

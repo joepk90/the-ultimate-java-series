@@ -1,4 +1,4 @@
-package com.theultimatejavaseries.mortgageproject;
+package com.theultimatejavaseries.projects.mortgageproject;
 
 public abstract class AbstractClassCalculator implements TaxCalculator {
 
