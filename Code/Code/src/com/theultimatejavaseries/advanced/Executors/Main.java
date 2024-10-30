@@ -11,6 +11,7 @@ public class Main {
         // CompletableFuturesDemo.transformingCompletableFutures();
         // CompletableFuturesDemo.composingCompletableFutures();
         // CompletableFuturesDemo.combiningCompletableFutures();
-        CompletableFuturesDemo.waitingForTooManyTasksToComplete();
+        // CompletableFuturesDemo.waitingForTooManyTasksToComplete();
+        CompletableFuturesDemo.waitingForTheFirstTask();
     }
 }

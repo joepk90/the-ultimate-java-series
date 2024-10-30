@@ -252,4 +252,18 @@ public class CompletableFuturesDemo {
         });
 
     }
+
+    public static void waitingForTheFirstTask() {
+        var first = CompletableFuture.supplyAsync(() -> {
+            LongTask.simulate();
+            return 20;
+        });
+        var second = CompletableFuture.supplyAsync(() -> 20);
+
+        // anyOf method will execute once either the first or second task completes
+        // because 20 is returned immediatly in the second service, the final task
+        // executes immediatly
+        CompletableFuture.anyOf(first, second)
+                .thenAccept(temp -> System.out.println(temp));
+    }
 }
