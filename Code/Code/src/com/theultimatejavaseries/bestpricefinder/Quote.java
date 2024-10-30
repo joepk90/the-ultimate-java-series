@@ -1,8 +1,8 @@
 package com.theultimatejavaseries.bestpricefinder;
 
 public class Quote {
-    private String site;
-    private Integer price;
+    private final String site;
+    private final int price;
 
     public Quote(String site, Integer price) {
         this.site = site;
